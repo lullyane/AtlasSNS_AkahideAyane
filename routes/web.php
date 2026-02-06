@@ -3,8 +3,7 @@
 use App\Http\Controllers\Auth\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\PostsController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Auth\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,11 +35,11 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
-Route::get('/top','PostsController@index');
+Route::get('/top','Auth\PostsController@index');
 
-Route::get('/profile','UsersController@profile');
+Route::get('/profile','Auth\UsersController@profile');
 
-Route::get('/search','UsersController@index');
+Route::get('/search','Auth\UsersController@index');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::get('/follow-list','Auth\PostsController@index');
+Route::get('/follower-list','Auth\PostsController@index');
