@@ -21,17 +21,15 @@
 </head>
 <body>
     <header>
-        <div id = "head">
-        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
-                <div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
+        <div class="head">
+            <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+            <div class="head_right">
+            <p class="profile_item">〇〇さん</p>
+            <!-- アコーディオンメニュー -->
+            <details id="profile_menu" class="profile_item">
+                <summary><span class="icon"></span></summary>
+            </details>
+            <img class="profile_item profile_icon" src="images/icon1.png">
             </div>
         </div>
     </header>
@@ -40,6 +38,11 @@
             @yield('content')
         </div >
         <div id="side-bar">
+            <div class="menu_item">
+                <div><a href="/top">ホーム</a></div>
+                <div><a href="/profile">プロフィール</a></div>
+                <div><a href="/logout">ログアウト</a></div>
+            </div>
             <div id="confirm">
                 <p>〇〇さんの</p>
                 <div>

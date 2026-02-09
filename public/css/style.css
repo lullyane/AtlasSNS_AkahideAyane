@@ -1,22 +1,110 @@
 @charset "utf-8";
-html{
+/* html{
 }
+
 body{
-}
+} */
+
 /* header */
-header{
-    background:#186AC9;
+header {
+    background: #186AC9;
 }
 
 /* main content */
-#row{
+#row {
     display: flex;
     flex-flow: row wrap;
 }
-#container{
+
+#container {
     flex: 0 0 80%;
 }
-#side-bar{
+
+#side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+}
+
+/* ■ トップ画面ヘッダー */
+.head {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+/* □ ヘッダー Atlasロゴ */
+h1 img {
+    width: 100px;
+    /* 縦横比固定 */
+    height: auto;
+}
+
+/* □ ヘッダー右側を横並びに */
+.head_right {
+    display: flex;
+}
+
+/* □ ヘッダー右側の3項目の間隔を指定 */
+.profile_item {
+    padding-left: 25px;
+}
+
+/* ヘッダー右側のアイコンサイズを指定 */
+.profile_icon {
+    width: 40px;
+    /* 縦横比固定(幅を親要素に合わせる) */
+    height: auto;
+    /* 要素内に画像を収める */
+    object-fit: contain;
+}
+
+/* □ アコーディオンメニュー */
+summary {
+    /* noneでデフォルトの ▼ 非表示 */
+    list-style-type: none;
+    padding: 16px 0px;
+}
+
+.icon {
+    display: block;
+    position: relative;
+    width: 24px;
+    transform-origin: center 43%;
+
+    /* アイコンのバーのスタイル */
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 15px;
+        height: 3px;
+        background-color: white;
+    }
+
+    &::before {
+        left: 0;
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        right: 0;
+        transform: rotate(-45deg);
+    }
+}
+
+.menu_item {
+    display: none;
+}
+
+/* □ アコーディオンが開いた時のスタイル */
+details[open] .icon {
+    transform: rotate(180deg);
+}
+
+#profile_menu[open]~#row #side-bar .menu_item {
+    display: block;
 }
