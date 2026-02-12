@@ -152,13 +152,14 @@ h1 img {
 .menu_nav ul a {
     display: block;
     font-size: 18px;
-    color: #727272;
+    color: #969696;
     padding-top: 20px;
     padding-bottom: 20px;
 
 }
 
+/* 項目にカーソル置いた時に色変える */
 .menu_nav ul a:hover {
     color: #fff;
-    background-color: #186AC9;
+    background-color: #00297E;
 }
