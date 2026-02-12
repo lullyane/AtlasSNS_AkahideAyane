@@ -24,12 +24,23 @@
         <div class="head">
             <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div class="head_right">
-            <p class="profile_item">〇〇さん</p>
-            <!-- アコーディオンメニュー -->
-            <details id="profile_menu" class="profile_item">
-                <summary><span class="icon"></span></summary>
-            </details>
-            <img class="profile_item profile_icon" src="images/icon1.png">
+                <p class="profile_item profile_name">○○ さん</p>
+                <!-- アコーディオンメニュー プルダウン -->
+                <div class="profile_item menu_trigger">
+                <span></span>
+                <span></span>
+                </div>
+                <!-- アコーディオンメニュー -->
+                <nav class="menu_nav">
+                <div class="nav_wrapper">
+                <ul>
+                <li class="nav_item"><a href="/top">HOME</a></li>
+                <li class="nav_item"><a href="/profile">プロフィール編集</a></li>
+                <li class="nav_item"><a href="/logout">ログアウト</a></li>
+                </ul>
+                </div>
+                </nav>
+                <img class="profile_item profile_icon" src="images/icon1.png">
             </div>
         </div>
     </header>
@@ -38,11 +49,6 @@
             @yield('content')
         </div >
         <div id="side-bar">
-            <div class="menu_item">
-                <div><a href="/top">ホーム</a></div>
-                <div><a href="/profile">プロフィール</a></div>
-                <div><a href="/logout">ログアウト</a></div>
-            </div>
             <div id="confirm">
                 <p>〇〇さんの</p>
                 <div>
@@ -61,7 +67,7 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="{{ asset('/js/script.js') }}"></script>
 </body>
 </html>
