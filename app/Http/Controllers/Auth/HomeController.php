@@ -26,4 +26,10 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    // ログアウト
+    function logout() {
+    removeItem('token'); // ローカルストレージからトークンを削除
+    return redirect('/login'); // ログインページにリダイレクト
+}
 }
