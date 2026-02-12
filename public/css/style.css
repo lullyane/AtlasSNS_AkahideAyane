@@ -25,7 +25,9 @@ header {
     border-left: 1px solid #727272;
 }
 
-/* ■ トップ画面ヘッダー */
+/* ================================ */
+/* トップ画面ヘッダー */
+/* ================================ */
 .head {
     display: flex;
     justify-content: space-between;
@@ -35,23 +37,31 @@ header {
     padding-left: 25px;
 }
 
-/* □ ヘッダー Atlasロゴ */
+/* ヘッダー Atlasロゴ */
 h1 img {
+    /* サイズ決め */
     width: 100px;
     /* 縦横比固定 */
     height: auto;
 }
 
-/* □ ヘッダー右側を横並びに */
+/* ヘッダー右側を横並びに */
 .head_right {
     display: flex;
 }
 
-/* □ ヘッダー右側の3項目の間隔を指定 */
+/* ヘッダー右側のユーザー名 */
+.profile_name {
+    padding-top: 15px;
+    color: #fff;
+}
+
+/* ヘッダー右側の3項目の間隔を指定 */
 .profile_item {
     padding-left: 25px;
 }
 
+/* ヘッダー右側のアイコンサイズを指定 */
 /* ヘッダー右側のアイコンサイズを指定 */
 .profile_icon {
     width: 40px;
@@ -61,50 +71,94 @@ h1 img {
     object-fit: contain;
 }
 
-/* □ アコーディオンメニュー */
-summary {
-    /* noneでデフォルトの ▼ 非表示 */
-    list-style-type: none;
-    padding: 16px 0px;
-}
-
-.icon {
-    display: block;
+/* ----------------- */
+/* アコーディオンメニュー */
+/* ----------------- */
+.menu_trigger {
     position: relative;
-    width: 24px;
-    transform-origin: center 43%;
-
-    /* アイコンのバーのスタイル */
-    &::before,
-    &::after {
-        content: "";
-        position: absolute;
-        display: block;
-        width: 15px;
-        height: 3px;
-        background-color: white;
-    }
-
-    &::before {
-        left: 0;
-        transform: rotate(45deg);
-    }
-
-    &::after {
-        right: 0;
-        transform: rotate(-45deg);
-    }
+    /* <spn>のタッチ可能な範囲決めてる */
+    /* これ設定しないと absolute で浮いてるからクリックできない */
+    width: 30px;
+    height: 42px;
+    /* 上に置いた時カーソルが指になるようにする */
+    cursor: pointer;
 }
 
-.menu_item {
+/* アコーディオンメニューのプルダウンの線 */
+.menu_trigger span {
+    display: block;
+    position: absolute;
+    width: 30px;
+    border-bottom: solid 3px #fff;
+    border-radius: 3px;
+    transition: .35s ease-in-out;
+}
+
+/* プルダウン（左の棒） */
+/* アクティブ時は上下反転 */
+.menu_trigger span:nth-child(1) {
+    width: 18px;
+    top: 23px;
+    right: 17px;
+    transform: rotate(45deg);
+}
+
+.menu_trigger.active span:nth-child(1) {
+    transform: rotate(-45deg);
+}
+
+/* プルダウン（右の棒） */
+/* アクティブ時は上下反転 */
+.menu_trigger span:nth-child(2) {
+    width: 18px;
+    top: 23px;
+    right: 5px;
+    transform: rotate(135deg);
+}
+
+.menu_trigger.active span:nth-child(2) {
+    transform: rotate(-135deg);
+}
+
+/* 以下2つで、各項目の表示/非表示を設定 */
+.menu_nav {
     display: none;
 }
 
-/* □ アコーディオンが開いた時のスタイル */
-details[open] .icon {
-    transform: rotate(180deg);
+.menu_nav.active {
+    display: block;
+    /* fixed：通常の流れから外れて、画面上のどこかに固定される */
+    position: fixed;
+    /* そのため、top right とかで配置場所を決める必要がある */
+    top: 82px;
+    right: 0px;
+    width: 30%;
+    background: #fff;
+    border: 3px solid #186AC9;
+    z-index: 2;
+    height: 30vh;
 }
 
-#profile_menu[open]~#row #side-bar .menu_item {
+/* 項目のデザイン */
+.menu_nav ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu_nav ul li {
+    text-align: center;
+}
+
+.menu_nav ul a {
     display: block;
+    font-size: 18px;
+    color: #727272;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+.menu_nav ul a:hover {
+    color: #fff;
+    background-color: #186AC9;
 }
