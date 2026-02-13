@@ -20,24 +20,26 @@ use App\Http\Controllers\Auth\UsersController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-
 //ログアウト中のページ
-Route::get('/login', 'Auth\LoginController@login');
-Route::post('/login', 'Auth\LoginController@login');
+// Route::get('/login', 'Auth\LoginController@login');
+// Route::post('/login', 'Auth\LoginController@login');
 
-Route::get('/register', 'Auth\RegisterController@register');
-Route::post('/register', 'Auth\RegisterController@register');
+// Route::get('/register', 'Auth\RegisterController@register');
+// Route::post('/register', 'Auth\RegisterController@register');
 
-Route::get('/added', 'Auth\RegisterController@added');
-Route::post('/added', 'Auth\RegisterController@added');
+// Route::get('/added', 'Auth\RegisterController@added');
+// Route::post('/added', 'Auth\RegisterController@added');
+
+// ログインしたときそのユーザーのセッション情報を読み込む
+// = ユーザーがログインしているか（認証済みか）をチェックするミドルウェア
+Route::get('/top', 'Auth\PostsController@index')->middleware('auth');
 
 //ログイン中のページ
-Route::get('/top','Auth\PostsController@index');
-
 Route::get('/profile','Auth\UsersController@profile');
 
 Route::get('/search','Auth\UsersController@index');
@@ -45,5 +47,5 @@ Route::get('/search','Auth\UsersController@index');
 Route::get('/follow-list','Auth\PostsController@index');
 Route::get('/follower-list','Auth\PostsController@index');
 
-Route::get('/logout', 'Auth\LoginController@login');
-Route::post('/logout', 'Auth\LoginController@login');
+// Route::get('/logout', 'Auth\LoginController@login');
+// Route::post('/logout', 'Auth\LoginController@login');
