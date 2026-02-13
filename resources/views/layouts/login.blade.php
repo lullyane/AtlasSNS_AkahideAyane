@@ -24,7 +24,9 @@
         <div class="head">
             <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div class="head_right">
-                <p class="profile_item profile_name">○○ さん</p>
+                @auth
+                <p class="profile_item profile_name">{{ Auth::user()->username }} さん</p>
+                @endauth
                 <!-- アコーディオンメニュー プルダウン -->
                 <div class="profile_item menu_trigger">
                 <span></span>
@@ -59,15 +61,21 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                @auth
+                <p>{{ Auth::user()->username }} さんの</p>
+                @endauth
                 <div>
                 <p>フォロー数</p>
+                @auth
                 <p>〇〇名</p>
+                @endauth
                 </div>
                 <p class="btn"><a href="">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
+                @auth
                 <p>〇〇名</p>
+                @endauth
                 </div>
                 <p class="btn"><a href="">フォロワーリスト</a></p>
             </div>
