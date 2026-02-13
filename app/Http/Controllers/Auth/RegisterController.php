@@ -63,7 +63,12 @@ class RegisterController extends Controller
                 'mail' => $mail,
                 'password' => bcrypt($password),]);
 
-            return redirect('added');
+            $registered_username = $request->input('username');
+
+            session(['username' => $registered_username]);
+
+            return redirect()->route('added');
+
         }
         return view('auth.register');
     }
