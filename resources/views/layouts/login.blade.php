@@ -29,26 +29,25 @@
                 @endauth
                 <!-- アコーディオンメニュー プルダウン -->
                 <div class="profile_item menu_trigger">
-                <span></span>
-                <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
                 <!-- アコーディオンメニュー -->
                 <nav class="menu_nav">
                 <div class="nav_wrapper">
-                <ul>
-                <li class="nav_item"><a href="/top">HOME</a></li>
-                <li class="nav_item"><a href="/profile">プロフィール編集</a></li>
-                <li class="nav_item">
-<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-    @csrf
-</form>
-
-<a href="javascript:void(0);"
-   onclick="document.getElementById('logout-form').submit();">
-    ログアウト
-</a>
-                </li>
-                </ul>
+                    <ul>
+                        <li class="nav_item"><a href="/top">HOME</a></li>
+                        <li class="nav_item"><a href="/profile">プロフィール編集</a></li>
+                        <li class="nav_item">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                            </form>
+                            <a href="javascript:void(0);"
+                            onclick="document.getElementById('logout-form').submit();">
+                            ログアウト
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 </nav>
                 <img class="profile_item profile_icon" src="images/icon1.png">
