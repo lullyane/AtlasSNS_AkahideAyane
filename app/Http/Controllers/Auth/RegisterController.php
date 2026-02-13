@@ -42,6 +42,18 @@ class RegisterController extends Controller
     public function register(Request $request){
         if($request->isMethod('post')){
 
+            // バリデーションチェック
+            $request->validate([
+                // 入力必須、2文字以上,12文字以内
+                'username' => 'required|between:2,12',
+                // 入力必須、5文字以上40文字以内、登録済みメールアドレス使用不可、メールアドレスの形式
+                'mail' => 'required|between:5,40|unique:users,mail|email',
+                //入力必須、英数字のみ、8文字以上20文字以内
+                'password' => 'required|alpha_num|between:8,20',
+                // Password入力欄と一致しているか
+                'PasswordConfirm' => 'same:password',
+            ]);
+
             $username = $request->input('username');
             $mail = $request->input('mail');
             $password = $request->input('password');
@@ -49,15 +61,10 @@ class RegisterController extends Controller
             User::create([
                 'username' => $username,
                 'mail' => $mail,
-                'password' => bcrypt($password),
-            ]);
+                'password' => bcrypt($password),]);
 
             return redirect('added');
         }
         return view('auth.register');
-    }
-
-    public function added(){
-        return view('auth.added');
     }
 }
