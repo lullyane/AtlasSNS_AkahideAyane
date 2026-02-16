@@ -26,4 +26,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // フォロー
+    public function followings()
+    {
+    return $this->hasMany(Follow::class, 'following_id');
+    }
+
+    // フォロワー
+    public function followers()
+    {
+    return $this->hasMany(Follow::class, 'followed_id');
+    }
 }

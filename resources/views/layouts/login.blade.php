@@ -61,19 +61,24 @@
         <div id="side-bar">
             <div id="confirm">
                 @auth
-                <p>{{ Auth::user()->username }} さんの</p>
+                <!-- 「ログイン中のユーザー名表示」 -->
+                <p>{{ Auth::user()->username }}さんの</p>
                 @endauth
                 <div>
                 <p>フォロー数</p>
                 @auth
-                <p>〇〇名</p>
+                <!-- ログイン中のユーザーが Follow テーブルに持ってるfollowingsの件数表示 -->
+                <p>{{ Auth::user()->followings()->count() }}
+名</p>
                 @endauth
                 </div>
                 <p class="btn"><a href="">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 @auth
-                <p>〇〇名</p>
+                <!-- ログイン中のユーザーが Follow テーブルに持ってるfollowersの件数表示 -->
+                <p>{{ Auth::user()->followers()->count() }}
+名</p>
                 @endauth
                 </div>
                 <p class="btn"><a href="">フォロワーリスト</a></p>
