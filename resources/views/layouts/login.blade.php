@@ -25,10 +25,10 @@
             <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div class="head_right">
                 @auth
-                <p class="profile_item profile_name">{{ Auth::user()->username }} さん</p>
+                <p class="profile_item profile_name">{{ Auth::user()->username }}</p> <p class="profile_item profile_name">さん</p>
                 @endauth
                 <!-- アコーディオンメニュー プルダウン -->
-                <div class="profile_item menu_trigger">
+                <div class="menu_trigger">
                     <span></span>
                     <span></span>
                 </div>

@@ -52,13 +52,15 @@ h1 img {
 
 /* ヘッダー右側のユーザー名 */
 .profile_name {
+    position: relative;
     padding-top: 15px;
     color: #fff;
+    right: 1px;
 }
 
 /* ヘッダー右側の3項目の間隔を指定 */
 .profile_item {
-    padding-left: 25px;
+    padding-left: 20px;
 }
 
 /* ヘッダー右側のアイコンサイズを指定 */
@@ -97,9 +99,9 @@ h1 img {
 /* プルダウン（左の棒） */
 /* アクティブ時は上下反転 */
 .menu_trigger span:nth-child(1) {
-    width: 18px;
+    width: 12px;
     top: 23px;
-    right: 17px;
+    right: 1px;
     transform: rotate(45deg);
 }
 
@@ -110,9 +112,9 @@ h1 img {
 /* プルダウン（右の棒） */
 /* アクティブ時は上下反転 */
 .menu_trigger span:nth-child(2) {
-    width: 18px;
+    width: 12px;
     top: 23px;
-    right: 5px;
+    left: 24px;
     transform: rotate(135deg);
 }
 
