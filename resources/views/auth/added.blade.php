@@ -1,14 +1,20 @@
 @extends('layouts.logout')
 
 @section('content')
+<div class="form_wrapper">
 
-<div id="clear">
+<div class="added_Bold">
   <p>{{ session("username") }} さん</p>
-  <p>ようこそ！AtlasSNSへ！</p>
-  <p>ユーザー登録が完了しました。</p>
-  <p>早速ログインをしてみましょう。</p>
+  <p>ようこそ！AtlasSNSへ</p>
+</div>
 
-  <p class="btn"><a href="/login">ログイン画面へ</a></p>
+<div class="added_text ">
+  <p>ユーザー登録が完了いたしました。</p>
+  <p>早速ログインをしてみましょう！</p>
+</div>
+
+<p><a href="/login" class="added_button">ログイン画面へ</a></p>
+
 </div>
 
 @endsection

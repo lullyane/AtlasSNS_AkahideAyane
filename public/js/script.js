@@ -22,3 +22,14 @@ $(function () {
     //(.g_nav)にある（.active）も削除する。
   });
 });
+
+// フォームのパスワードを伏字にする
+function togglePasswordVisibility(input, passwordVisibleIcon, passwordHiddenIcon) {
+  if (input.type === 'password') {
+    input.type = 'text';
+    // アイコンの表示を切り替え
+  } else {
+    input.type = 'password';
+    // アイコンの表示を切り替え
+  }
+}
