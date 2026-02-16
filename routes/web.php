@@ -58,8 +58,8 @@ Route::get('/profile','Auth\UsersController@profile');
 
 Route::get('/search','Auth\UsersController@index');
 
-Route::get('/follow-list','Auth\PostsController@index');
-Route::get('/follower-list','Auth\PostsController@index');
+Route::get('/follow-list','Auth\HomeController@followList');
+Route::get('/follower-list','Auth\HomeController@followerList');
 
 // Route::get('/logout', 'Auth\LoginController@login');
 // Route::post('/logout', 'Auth\LoginController@login');

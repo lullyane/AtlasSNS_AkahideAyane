@@ -33,12 +33,22 @@ class HomeController extends Controller
     return redirect('/login'); // ログインページにリダイレクト
 }
 
-    // フォロワー、フォローユーザー
+    // フォロワーとフォローユーザーの件数表示
     public function show($id)
     {
     $user = User::withCount(['followings', 'followers'])
                 ->findOrFail($id);
 
     return view('users.show', compact('user'));
+    }
+
+    // フォローページへの移動
+    public function followList(){
+    return view('follows.followList');
+    }
+
+    // フォロワーページへの移動
+    public function followerList(){
+    return view('follows.followerList');
     }
 }
