@@ -56,7 +56,7 @@ Route::get('/top', 'Auth\PostsController@index')->middleware('auth');
 //ログイン中のページ
 Route::get('/profile','Auth\UsersController@profile');
 
-Route::get('/search','Auth\UsersController@index');
+Route::get('/search','Auth\UsersController@search');
 
 Route::get('/follow-list','Auth\HomeController@followList');
 Route::get('/follower-list','Auth\HomeController@followerList');
