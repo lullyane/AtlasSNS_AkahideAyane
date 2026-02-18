@@ -52,6 +52,7 @@ Route::get('/added', function () {
 // ログインしたときそのユーザーのセッション情報を読み込む
 // = ユーザーがログインしているか（認証済みか）をチェックするミドルウェア
 Route::get('/top', 'Auth\PostsController@index')->middleware('auth');
+Route::post('/top', 'Auth\PostsController@form')->middleware('auth');
 
 //ログイン中のページ
 Route::get('/profile','Auth\UsersController@profile');
