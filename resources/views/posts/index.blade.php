@@ -13,8 +13,10 @@
 
 @foreach ($posts as $post)
     <div>
+      <img class="form_icon" src="images/icon1.png">
+      <p>{{ $post->user->username }}</p>
+      <p>{{ $post->created_at }}</p>
       <p>{{ $post->post }}</p>
-      <small>{{ $post->created_at }}</small>
     </div>
 @endforeach
 

@@ -15,7 +15,8 @@ class Post extends Model
 
     // 投稿はユーザーに属するのでUserモデルとリレーションする
     public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+{
+    return $this->belongsTo(User::class);
+}
+
 }
