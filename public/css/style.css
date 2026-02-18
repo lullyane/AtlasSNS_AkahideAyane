@@ -147,13 +147,16 @@ h1 img {
 }
 
 /* ================================ */
-/* サイドバー */
+/* コンテンツ横並び */
 /* ================================ */
 #row {
     display: flex;
     flex-flow: row wrap;
 }
 
+/* ================================ */
+/* サイドバー */
+/* ================================ */
 #container {
     flex: 0 0 78%;
 }
@@ -192,35 +195,73 @@ h1 img {
     border: none;
     border-radius: 5px;
     width: 120px;
-    height: 30px;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 125px;
 }
 
-hr {
-    border: none;
+.side_divider {
     border-top: 1px solid #727272;
     margin: 40px 0 30px 0;
 }
 
 .search_button {
     font-weight: 300;
-    font-size: 12px;
+    font-size: 15px;
     background-color: #0656CF;
     border: none;
     border-radius: 5px;
     width: 120px;
-    height: 30px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: 30px auto 0 auto;
 }
 
 /* リンククリックしても文字白いままにする */
 .search_button a,
 .follow_button a {
     color: #fff;
+}
+
+/* ================================ */
+/* メインコンテンツ */
+/* ================================ */
+#container form {
+    /* width設定しないと横幅いっぱいになっちゃう */
+    width: auto;
+    padding: 25px 0 25px 85px;
+    border-bottom: 6px solid #E0E0E0;
+}
+
+.form {
+    display: flex;
+    gap: 20px;
+}
+
+/* アイコンとフォームのサイズ */
+.form_icon {
+    width: 40px;
+    height: 40px;
+}
+
+.form textarea {
+    width: 600px;
+    height: 80px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.form textarea::placeholder {
+    color: #E0E0E0;
+}
+
+.post {
+    width: 40px;
+    height: 40px;
+    margin-top: 40px;
 }

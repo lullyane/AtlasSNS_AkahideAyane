@@ -89,8 +89,9 @@
                     <p class="follow_button side_space"><a href="/follower-list">フォロワーリスト</a></p>
                 </div>
             </div>
-            <hr>
-            <p class="search_button"><a href="/search">ユーザー検索</a></p>
+            <div class="side_divider">
+                <p class="search_button"><a href="/search">ユーザー検索</a></p>
+            </div>
         </div>
     </div>
     <footer>
