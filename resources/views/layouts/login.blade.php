@@ -62,28 +62,35 @@
             <div id="confirm">
                 @auth
                 <!-- 「ログイン中のユーザー名表示」 -->
-                <p>{{ Auth::user()->username }}さんの</p>
+                <p class="side_space">{{ Auth::user()->username }}さんの</p>
                 @endauth
-                <div>
-                <p>フォロー数</p>
-                @auth
-                <!-- ログイン中のユーザーが Follow テーブルに持ってるfollowingsの件数表示 -->
-                <p>{{ Auth::user()->followings()->count() }}
-名</p>
-                @endauth
+                <div class="side_follow">
+                    <div class="side_block">
+                        <p class="side_item side_space">フォロー数</p>
+                        @auth
+                        <!-- ログイン中のユーザーが Follow テーブルに持ってるfollowingsの件数表示 -->
+                        <p class="side_item side_space">{{ Auth::user()->followings()->count() }}
+人</p>
+                        @endauth
+                    </div>
+                    <div class="side_space">
+                        <p class="follow_button"><a href="/follow-list">フォローリスト</a></p>
+                    </div>
+                    <div class="side_block">
+                        <p class="side_item side_space">フォロワー数</p>
+                        @auth
+                        <!-- ログイン中のユーザーが Follow テーブルに持ってるfollowersの件数表示 -->
+                        <p class="side_item side_space">{{ Auth::user()->followers()->count() }}
+人</p>
+                        @endauth
+                    </div>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
-                <div>
-                <p>フォロワー数</p>
-                @auth
-                <!-- ログイン中のユーザーが Follow テーブルに持ってるfollowersの件数表示 -->
-                <p>{{ Auth::user()->followers()->count() }}
-名</p>
-                @endauth
+                <div class="side_space">
+                    <p class="follow_button side_space"><a href="/follower-list">フォロワーリスト</a></p>
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <hr>
+            <p class="search_button"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>

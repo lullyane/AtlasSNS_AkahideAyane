@@ -1,33 +1,12 @@
 @charset "utf-8";
-/* html{
-}
 
-body{
-} */
-
-/* header */
+/* ================================ */
+/* ログイン後の画面のヘッダー */
+/* ================================ */
 header {
     background: #186AC9;
 }
 
-/* main content */
-#row {
-    display: flex;
-    flex-flow: row wrap;
-}
-
-#container {
-    flex: 0 0 80%;
-}
-
-#side-bar {
-    flex: 0 0 19%;
-    border-left: 1px solid #727272;
-}
-
-/* ================================ */
-/* トップ画面ヘッダー */
-/* ================================ */
 .head {
     display: flex;
     justify-content: space-between;
@@ -61,6 +40,7 @@ h1 img {
 /* ヘッダー右側の3項目の間隔を指定 */
 .profile_item {
     padding-left: 20px;
+    font-size: 17px;
 }
 
 /* ヘッダー右側のアイコンサイズを指定 */
@@ -141,7 +121,7 @@ h1 img {
     height: 30vh;
 }
 
-/* 項目のデザイン */
+/* 各項目のデザイン */
 .menu_nav ul {
     display: flex;
     flex-direction: column;
@@ -164,4 +144,83 @@ h1 img {
 .menu_nav ul a:hover {
     color: #fff;
     background-color: #00297E;
+}
+
+/* ================================ */
+/* サイドバー */
+/* ================================ */
+#row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#container {
+    flex: 0 0 78%;
+}
+
+#side-bar {
+    flex: 0 0 19%;
+    border-left: 2px solid #727272;
+    height: 100vh;
+}
+
+#horizontal_bar {
+    border-top: 1px solid #727272;
+}
+
+/* フォロー数/フォロワー数の位置固定 */
+.side_follow {
+    display: grid;
+    font-size: 14px;
+}
+
+.side_block {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    column-gap: 3px;
+}
+
+/* 行間 */
+.side_space {
+    margin: 20px 0 0 15px;
+}
+
+.follow_button {
+    font-weight: 300;
+    font-size: 12px;
+    background-color: #0656CF;
+    border: none;
+    border-radius: 5px;
+    width: 120px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 125px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #727272;
+    margin: 40px 0 30px 0;
+}
+
+.search_button {
+    font-weight: 300;
+    font-size: 12px;
+    background-color: #0656CF;
+    border: none;
+    border-radius: 5px;
+    width: 120px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* リンククリックしても文字白いままにする */
+.search_button a,
+.follow_button a {
+    color: #fff;
 }
