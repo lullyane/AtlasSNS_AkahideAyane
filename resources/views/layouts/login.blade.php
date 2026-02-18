@@ -74,7 +74,7 @@
                         @endauth
                     </div>
                     <div class="side_space">
-                        <p class="follow_button"><a href="/follow-list">フォローリスト</a></p>
+                        <a class="btn btn-primary follow_button" href="/follow-list" role="button">フォローリスト</a>
                     </div>
                     <div class="side_block">
                         <p class="side_item side_space">フォロワー数</p>
@@ -86,11 +86,11 @@
                     </div>
                 </div>
                 <div class="side_space">
-                    <p class="follow_button side_space"><a href="/follower-list">フォロワーリスト</a></p>
+                    <a class="btn btn-primary follow_button" href="/follower-list" role="button">フォロワーリスト</a>
                 </div>
             </div>
             <div class="side_divider">
-                <p class="search_button"><a href="/search">ユーザー検索</a></p>
+                <a class="btn btn-primary search_button" href="/search" role="button">ユーザー検索</a>
             </div>
         </div>
     </div>

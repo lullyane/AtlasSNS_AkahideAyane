@@ -180,7 +180,6 @@ h1 img {
 .side_block {
     display: grid;
     grid-template-columns: 120px 1fr;
-    column-gap: 3px;
 }
 
 /* 行間 */
@@ -189,6 +188,7 @@ h1 img {
 }
 
 .follow_button {
+    color: #fff;
     font-weight: 300;
     font-size: 12px;
     background-color: #0656CF;
@@ -208,6 +208,7 @@ h1 img {
 }
 
 .search_button {
+    color: #fff;
     font-weight: 300;
     font-size: 15px;
     background-color: #0656CF;
@@ -219,12 +220,6 @@ h1 img {
     justify-content: center;
     align-items: center;
     margin: 30px auto 0 auto;
-}
-
-/* リンククリックしても文字白いままにする */
-.search_button a,
-.follow_button a {
-    color: #fff;
 }
 
 /* ================================ */
