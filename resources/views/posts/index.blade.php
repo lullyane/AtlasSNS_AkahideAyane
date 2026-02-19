@@ -18,7 +18,7 @@
     <img class="form_icon" src="images/icon1.png">
     <div class="contents_box">
       <p class="contents_username">{{ $post->user->username }}</p>
-      <p class="post_username">{{ $post->post }}</p>
+      <p class="contents_post">{{ $post->post }}</p>
       <!-- ↑空白が適用されちゃうから改行しない -->
 
     </div>
@@ -27,17 +27,16 @@
       <p class="created_at">{{ $post->created_at->format('Y-m-d H:i') }}</p>
 
       <div class="list_button">
+        <!-- ifの役割：ログインIDと投稿者のIDが一致している投稿については、以下のボタンを表示する -->
         @if (Auth::check() && Auth::user()->id === $post->user_id)
-        <!-- 🍊リンク設定未完了 -->
+        <!-- 編集ボタン 🍊リンク設定未完了 -->
         <a href=""><img src="images/edit.png" class="images_edit"></a>
-        @endif
-
-        @if(Auth::check() && (Auth::user()->id === $post->user_id || Auth::user()->isAdmin()))
-        <!-- 🍊デリート機能の実装未完了 -->
-        <form action="/top" method="POST" onsubmit="return confirm('本当に削除しますか？');" class="delete_form">
-        @csrf
-        @method('DELETE')
-        <button><img src="images/trash.png" class="images_trash"></button>
+        <!-- 削除ボタン -->
+        <form onsubmit="return confirm('本当に削除しますか？');">
+          <!-- このformationのURLとルートのURLを合わせる -->
+          <button formaction="/{{ $post->id }}/delete" formmethod="get">
+          <img src="images/trash.png" class="images_trash">
+          </button>
         </form>
         @endif
       </div>

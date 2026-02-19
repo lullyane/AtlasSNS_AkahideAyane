@@ -33,4 +33,11 @@ class PostsController extends Controller
         // 投稿し終わったらトップへ戻る
         return redirect('/top');
     }
+
+    // 投稿削除
+    public function delete($id)
+    {
+        post::where('id', $id)->delete();
+        return redirect('/top');
+    }
 }

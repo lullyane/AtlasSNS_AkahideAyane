@@ -48,7 +48,6 @@ Route::get('/added', function () {
 // ⭐method指定しなければ自動で GET になること忘れず
 // ⭐加えて、Form ファサード (Form::open()) は method="POST" を自動で生成する
 
-
 // ログインしたときそのユーザーのセッション情報を読み込む
 // = ユーザーがログインしているか（認証済みか）をチェックするミドルウェア
 Route::get('/top', 'Auth\PostsController@index')->middleware('auth');
@@ -61,6 +60,8 @@ Route::get('/search','Auth\UsersController@search');
 
 Route::get('/follow-list','Auth\HomeController@followList');
 Route::get('/follower-list','Auth\HomeController@followerList');
+
+Route::get('/{id}/delete', 'Auth\PostsController@delete');
 
 // Route::get('/logout', 'Auth\LoginController@login');
 // Route::post('/logout', 'Auth\LoginController@login');
