@@ -298,7 +298,7 @@ button {
 }
 
 /* 投稿内容に改行が適用されるように設定する機能 */
-.post_username {
+.contents_post {
     white-space: pre-wrap;
 }
 
