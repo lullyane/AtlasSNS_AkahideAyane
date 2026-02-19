@@ -38,4 +38,10 @@ class User extends Authenticatable
     {
     return $this->hasMany(Follow::class, 'followed_id');
     }
+
+    // 投稿削除ボタンに必要となる「roleカラムが'admin'の場合にtrueを返す」機能
+    public function isAdmin()
+    {
+    return $this->role === 'admin';
+    }
 }

@@ -157,10 +157,6 @@ h1 img {
 /* ================================ */
 /* サイドバー */
 /* ================================ */
-#container {
-    flex: 0 0 78%;
-}
-
 #side-bar {
     flex: 0 0 19%;
     border-left: 2px solid #727272;
@@ -225,14 +221,21 @@ h1 img {
 /* ================================ */
 /* メインコンテンツ */
 /* ================================ */
-#container form {
+#container {
+    flex: 0 0 78%;
+}
+
+/* ================================ */
+/* 投稿フォーム */
+/* ================================ */
+.post_form {
     /* width設定しないと横幅いっぱいになっちゃう */
     width: auto;
     padding: 25px 0 25px 85px;
     border-bottom: 6px solid #E0E0E0;
 }
 
-.form {
+.form_box {
     display: flex;
     gap: 20px;
 }
@@ -243,7 +246,7 @@ h1 img {
     height: 40px;
 }
 
-.form textarea {
+.post_form textarea {
     width: 600px;
     height: 80px;
     border: none;
@@ -251,12 +254,89 @@ h1 img {
     resize: none;
 }
 
-.form textarea::placeholder {
-    color: #E0E0E0;
-}
-
 .post {
     width: 40px;
     height: 40px;
     margin-top: 40px;
+}
+
+.form textarea::placeholder {
+    color: #E0E0E0;
+}
+
+button {
+    border: none;
+    background-color: #fff;
+}
+
+/* ================================ */
+/* 投稿一覧 */
+/* ================================ */
+/* 投稿一覧縦揃え */
+.list {
+    width: auto;
+    flex-direction: column;
+    padding: 15px 0 15px 125px;
+    border-bottom: 2px solid #E0E0E0;
+}
+
+/* 一つ一つの投稿の設定 */
+.list_box {
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+}
+
+/* ユーザー名と投稿内容のサイズや行間 */
+.contents_box {
+    width: 650px;
+    height: auto
+}
+
+.contents_username {
+    margin-bottom: 15px;
+}
+
+/* 投稿内容に改行が適用されるように設定する機能 */
+.post_username {
+    white-space: pre-wrap;
+}
+
+/* 編集・削除ボタンのサイズ */
+.images_edit,
+.images_trash {
+    width: 25px;
+    height: auto;
+}
+
+.delete_form {
+    width: 25px;
+    height: 25px;
+}
+
+.delete_form button {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+}
+
+/* 編集・削除ボタンの位置 */
+.others_box {
+    position: relative;
+    padding-bottom: 15px;
+    min-height: 40px;
+}
+
+.list_button {
+    position: absolute;
+    display: flex;
+    bottom: 0px;
+}
+
+.images_edit {
+    margin-left: 20px;
+    margin-right: 10px;
 }
