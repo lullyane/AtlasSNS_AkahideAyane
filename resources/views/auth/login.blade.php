@@ -1,7 +1,8 @@
 @extends('layouts.logout')
 
 @section('content')
-{!! Form::open(['url' => '/login']) !!}
+{!! Form::open(['url' => '/login', 'method' => 'post']) !!}
+@csrf
 
 <div class="form_wrapper">
 

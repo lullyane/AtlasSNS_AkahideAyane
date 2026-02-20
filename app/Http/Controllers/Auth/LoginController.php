@@ -10,6 +10,10 @@ use Auth;
 
 class LoginController extends Controller
 {
+    public function username()
+{
+    return 'mail';
+}
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -61,4 +65,5 @@ class LoginController extends Controller
 
     return redirect('/login');
     }
+
 }

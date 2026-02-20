@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
@@ -50,18 +50,19 @@ Route::get('/added', function () {
 
 // ログインしたときそのユーザーのセッション情報を読み込む
 // = ユーザーがログインしているか（認証済みか）をチェックするミドルウェア
-Route::get('/top', 'Auth\PostsController@index')->middleware('auth');
-Route::post('/top', 'Auth\PostsController@form')->middleware('auth');
+// Route::get('/top', 'Auth\PostsController@index')->middleware('auth');
+// Route::post('/top', 'Auth\PostsController@form')->middleware('auth');
+
+Route::get('/top', [PostsController::class, 'index'])->middleware('auth');
+Route::post('/top', [PostsController::class, 'form'])->middleware('auth');
 
 //ログイン中のページ
-Route::get('/profile','Auth\UsersController@profile');
+Route::get('/profile', [UsersController::class, 'profile'])->middleware('auth');
+Route::get('/search', [UsersController::class, 'search'])->middleware('auth');
+Route::get('/follow-list', [HomeController::class, 'followList'])->middleware('auth');
+Route::get('/follower-list', [HomeController::class, 'followerList'])->middleware('auth');
 
-Route::get('/search','Auth\UsersController@search');
-
-Route::get('/follow-list','Auth\HomeController@followList');
-Route::get('/follower-list','Auth\HomeController@followerList');
-
-Route::get('/{id}/delete', 'Auth\PostsController@delete');
+Route::get('/post/{id}/delete', [PostsController::class, 'delete'])->middleware('auth');
 
 // Route::get('/logout', 'Auth\LoginController@login');
 // Route::post('/logout', 'Auth\LoginController@login');

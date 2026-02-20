@@ -21,7 +21,7 @@
 </head>
 <body>
     <header class="head">
-      <h1><img src="images/atlas.png"></h1>
+      <h1><img src="{{ asset('images/atlas.png') }}"></h1>
       <p class="h1_font">Social Network Service</p>
     </header>
       @yield('content')

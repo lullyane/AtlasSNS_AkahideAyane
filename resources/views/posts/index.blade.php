@@ -34,7 +34,7 @@
         <!-- 削除ボタン -->
         <form onsubmit="return confirm('本当に削除しますか？');">
           <!-- このformationのURLとルートのURLを合わせる -->
-          <button formaction="/{{ $post->id }}/delete" formmethod="get">
+          <button formaction="/post/{{ $post->id }}/delete" formmethod="get">
             <div class="trash_images">
               <img src="images/trash.png" class="images_trash">
               <img src="images/trash-h.png" class="images_trash_h">
