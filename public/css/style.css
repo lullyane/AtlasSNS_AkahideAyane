@@ -267,6 +267,7 @@ h1 img {
 button {
     border: none;
     background-color: #fff;
+    line-height: 0;
 }
 
 /* ================================ */
@@ -280,14 +281,16 @@ button {
     border-bottom: 2px solid #E0E0E0;
 }
 
-/* 一つ一つの投稿の設定 */
+/* 一つ一つの投稿の要素の配置 */
 .list_box {
     display: flex;
     gap: 20px;
     font-size: 12px;
 }
 
+/* -------------------- */
 /* ユーザー名と投稿内容のサイズや行間 */
+/* -------------------- */
 .contents_box {
     width: 650px;
     height: auto
@@ -302,28 +305,17 @@ button {
     white-space: pre-wrap;
 }
 
+/* -------------------- */
 /* 編集・削除ボタンのサイズ */
+/* -------------------- */
 .images_edit,
-.images_trash {
-    width: 25px;
-    height: auto;
-}
-
-.delete_form {
+.images_trash,
+.images_trash_h {
     width: 25px;
     height: 25px;
 }
 
-.delete_form button {
-    width: 25px;
-    height: 25px;
-    padding: 0;
-    margin: 0;
-    border: none;
-    background: none;
-}
-
-/* 編集・削除ボタンの位置 */
+/* 配置 */
 .others_box {
     position: relative;
     padding-bottom: 15px;
@@ -339,4 +331,32 @@ button {
 .images_edit {
     margin-left: 20px;
     margin-right: 10px;
+}
+
+/* 投稿削除ボタンのホバー時切り替え */
+.trash_images {
+    position: relative;
+    width: 25px;
+    height: 25px;
+}
+
+.images_trash,
+.images_trash_h {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+}
+
+.images_trash_h {
+    opacity: 0;
+}
+
+.trash_images:hover .images_trash {
+    opacity: 0;
+}
+
+.trash_images:hover .images_trash_h {
+    opacity: 1;
 }
