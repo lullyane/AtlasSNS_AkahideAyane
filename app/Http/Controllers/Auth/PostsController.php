@@ -40,4 +40,21 @@ class PostsController extends Controller
         post::where('id', $id)->delete();
         return redirect('/top');
     }
+
+    // 投稿更新
+    public function update(Request $request)
+    {
+    // dd($request->all());
+
+    $post = Post::find($request->id);
+
+    if (!$post) {
+        return redirect('/top')->with('error', '投稿が見つかりませんでした');
+    }
+
+    $post->post = $request->post;
+    $post->save();
+
+    return redirect('/top')->with('success', '更新しました');
+    }
 }

@@ -50,19 +50,23 @@ Route::get('/added', function () {
 
 // ログインしたときそのユーザーのセッション情報を読み込む
 // = ユーザーがログインしているか（認証済みか）をチェックするミドルウェア
-// Route::get('/top', 'Auth\PostsController@index')->middleware('auth');
-// Route::post('/top', 'Auth\PostsController@form')->middleware('auth');
-
 Route::get('/top', [PostsController::class, 'index'])->middleware('auth');
 Route::post('/top', [PostsController::class, 'form'])->middleware('auth');
 
 //ログイン中のページ
 Route::get('/profile', [UsersController::class, 'profile'])->middleware('auth');
+
 Route::get('/search', [UsersController::class, 'search'])->middleware('auth');
+
 Route::get('/follow-list', [HomeController::class, 'followList'])->middleware('auth');
+
 Route::get('/follower-list', [HomeController::class, 'followerList'])->middleware('auth');
 
 Route::get('/post/{id}/delete', [PostsController::class, 'delete'])->middleware('auth');
+
+Route::post('/post/update',[PostsController::class, 'update'])
+->middleware('auth')
+->name('post.update');
 
 // Route::get('/logout', 'Auth\LoginController@login');
 // Route::post('/logout', 'Auth\LoginController@login');

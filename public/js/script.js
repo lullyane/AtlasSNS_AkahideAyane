@@ -1,4 +1,6 @@
+// --------------------
 // アコーディオンメニューの動き
+// --------------------
 $(function () {
   $('.menu_trigger').click(function () {
     //プルダウン .menu_triggerをタップすると、
@@ -23,7 +25,9 @@ $(function () {
   });
 });
 
+// --------------------
 // フォームのパスワードを伏字にする
+// --------------------
 function togglePasswordVisibility(input, passwordVisibleIcon, passwordHiddenIcon) {
   if (input.type === 'password') {
     input.type = 'text';
@@ -33,3 +37,41 @@ function togglePasswordVisibility(input, passwordVisibleIcon, passwordHiddenIcon
     // アイコンの表示を切り替え
   }
 }
+
+// --------------------
+// 投稿内容更新
+// --------------------
+// モーダル要素
+const modal = document.getElementById('editModal');
+
+// 編集ボタン
+document.querySelectorAll('.edit_btn').forEach(btn => {
+  btn.addEventListener('click', function () {
+    document.getElementById('editId').value = this.dataset.id;
+    document.getElementById('editText').value = this.dataset.text;
+
+    document.getElementById('editModal').style.display = 'block';
+  });
+});
+
+
+// --------------------
+// モーダル外クリックでモーダル閉じる
+// --------------------
+// 背景定義
+const overlay = document.querySelector('.modal');
+// モーダル本体定義
+const modalContent = document.querySelector('.modal_content');
+
+// 1. 背景をクリックした時、クリックされたのが背景自身（コンテンツ以外）の場合のみ閉じる
+overlay.addEventListener('click', (e) => {
+  // またはクラスを削除
+  if (e.target === overlay) {
+    overlay.style.display = 'none';
+  }
+});
+
+// 2. モーダル本体をクリックした時は閉じないようにする
+modalContent.addEventListener('click', (e) => {
+  e.stopPropagation();
+});

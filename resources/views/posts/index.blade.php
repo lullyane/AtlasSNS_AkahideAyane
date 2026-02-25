@@ -15,22 +15,32 @@
 @foreach ($posts as $post)
 <div class="list">
   <div class="list_box">
+    <!-- 投稿者のアイコン -->
     <img class="form_icon" src="images/icon1.png">
+
     <div class="contents_box">
+      <!-- 投稿ユーザー名 -->
       <p class="contents_username">{{ $post->user->username }}</p>
+      <!-- 投稿内容 -->
       <p class="contents_post">{{ $post->post }}</p>
       <!-- ↑空白が適用されちゃうから改行しない -->
-
     </div>
-    <div class="others_box">
-      <!-- 投稿日時の秒非表示 -->
-      <p class="created_at">{{ $post->created_at->format('Y-m-d H:i') }}</p>
 
+    <div class="others_box">
+      <!-- 投稿日時（秒非表示） -->
+      <p class="created_at">{{ $post->created_at->format('Y-m-d H:i') }}</p>
+      <!-- ボタン2種の箱 -->
       <div class="list_button">
+
         <!-- ifの役割：ログインIDと投稿者のIDが一致している投稿については、以下のボタンを表示する -->
         @if (Auth::check() && Auth::user()->id === $post->user_id)
-        <!-- 編集ボタン 🍊リンク設定未完了 -->
-        <a href=""><img src="images/edit.png" class="images_edit"></a>
+
+        <!-- 編集ボタン -->
+         <button class="edit_btn" data-id="{{ $post->id }}"
+        data-text="{{ $post->post }}">
+          <img src="/images/edit.png" class="images_edit">
+        </button>
+
         <!-- 削除ボタン -->
         <form onsubmit="return confirm('本当に削除しますか？');">
           <!-- このformationのURLとルートのURLを合わせる -->
@@ -41,12 +51,30 @@
             </div>
           </button>
         </form>
+
         @endif
+
       </div>
 
     </div>
   </div>
 </div>
+
+<!-- 編集モーダル -->
+<div id="editModal" class="modal">
+  <div class="modal_content">
+
+    <form action="/post/update" method="post">
+      @csrf
+      <input type="hidden" name="id" id="editId">
+      <div class="modal_box">
+      <textarea name="post" id="editText"></textarea>
+      <button type="submit"><img src="/images/edit.png" class="modal_button"></button>
+      </div>
+    </form>
+  </div>
+</div>
+
 @endforeach
 
 @endsection
