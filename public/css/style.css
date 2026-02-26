@@ -408,3 +408,12 @@ textarea {
     outline: none;
     padding: 20px;
 }
+
+/* ================================ */
+/* 検索ページ */
+/* ================================ */
+.search_form {
+    width: auto;
+    padding: 25px 0 110px 85px;
+    border-bottom: 6px solid #E0E0E0;
+}

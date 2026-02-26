@@ -1,6 +1,9 @@
 @extends('layouts.login')
 
 @section('content')
-<p>ユーザー検索ページ</p>
+
+<div class="search_form">
+
+</div>
 
 @endsection
