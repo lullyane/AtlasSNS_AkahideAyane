@@ -56,7 +56,11 @@ Route::post('/top', [PostsController::class, 'form'])->middleware('auth');
 //ログイン中のページ
 Route::get('/profile', [UsersController::class, 'profile'])->middleware('auth');
 
+// ユーザー検索ページに飛ぶ
 Route::get('/search', [UsersController::class, 'search'])->middleware('auth');
+
+// 検索結果表示ルート
+Route::get('/search/form',[UsersController::class,'search']);
 
 Route::get('/follow-list', [HomeController::class, 'followList'])->middleware('auth');
 
@@ -67,8 +71,6 @@ Route::get('/post/{id}/delete', [PostsController::class, 'delete'])->middleware(
 Route::post('/post/update',[PostsController::class, 'update'])
 ->middleware('auth')
 ->name('post.update');
-
-Route::get('/search',[PostsController::class,'getIndex']);
 
 // Route::get('/logout', 'Auth\LoginController@login');
 // Route::post('/logout', 'Auth\LoginController@login');

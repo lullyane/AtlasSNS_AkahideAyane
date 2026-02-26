@@ -7,12 +7,17 @@
     {!! Form::text('s', $search ?? '') !!}
     {!! Form::submit('検索') !!}
 {!! Form::close() !!}
+
+@if(!empty($search))
+    <p>検索ワード：{{ $search }}</p>
+@endif
+
 </div>
 
-@foreach($data as $post)
+@foreach($data as $user)
 <div>
-    <div>{{{ $post->id }}}</div>
-    <div>{{{ $post->post }}}</div>
+    <div>{{{ $user->images }}}</div>
+    <div>{{{ $user->username }}}</div>
 </div>
 @endforeach
 
