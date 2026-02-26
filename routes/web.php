@@ -68,5 +68,7 @@ Route::post('/post/update',[PostsController::class, 'update'])
 ->middleware('auth')
 ->name('post.update');
 
+Route::get('/search',[PostsController::class,'getIndex']);
+
 // Route::get('/logout', 'Auth\LoginController@login');
 // Route::post('/logout', 'Auth\LoginController@login');
