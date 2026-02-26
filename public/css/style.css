@@ -203,7 +203,7 @@ h1 img {
     margin: 40px 0 30px 0;
 }
 
-.search_button {
+.search_page_button {
     color: #fff;
     font-weight: 300;
     font-size: 15px;
@@ -310,7 +310,9 @@ button {
 /* -------------------- */
 .images_edit,
 .images_trash,
-.images_trash_h {
+.images_trash_h,
+.modal_button,
+.trash_images {
     width: 25px;
     height: 25px;
 }
@@ -336,8 +338,6 @@ button {
 /* 投稿削除ボタンのホバー時切り替え */
 .trash_images {
     position: relative;
-    width: 25px;
-    height: 25px;
 }
 
 .images_trash,
@@ -345,8 +345,6 @@ button {
     position: absolute;
     top: 0;
     left: 0;
-    width: 25px;
-    height: 25px;
 }
 
 .images_trash_h {
@@ -396,8 +394,6 @@ button {
 }
 
 .modal_button {
-    width: 25px;
-    height: 25px;
     margin-top: 20px;
 }
 
@@ -412,8 +408,46 @@ textarea {
 /* ================================ */
 /* 検索ページ */
 /* ================================ */
+/* 検索窓と一覧の区切り */
 .search_form {
     width: auto;
-    padding: 25px 0 110px 85px;
+    padding: 40px 0 40px 60px;
     border-bottom: 6px solid #E0E0E0;
+}
+
+/* ------------------- */
+/* 検索窓 */
+/* ------------------- */
+.search_box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search_window {
+    padding: 10px 100px 10px 0;
+    border-left: 2px solid #727272;
+}
+
+input::placeholder {
+    padding-left: 10px;
+}
+
+.search_icon {
+    width: 40px;
+    height: 40px;
+}
+
+.search_word {
+    margin-left: 150px;
+}
+
+/* ------------------- */
+/* 検索結果 */
+/* ------------------- */
+.search_results {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 30px 0 30px 250px;
 }

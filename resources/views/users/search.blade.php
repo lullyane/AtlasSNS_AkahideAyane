@@ -4,19 +4,23 @@
 
 <div class="search_form">
 {!! Form::open(['method' => 'GET']) !!}
-    {!! Form::text('s', $search ?? '') !!}
-    {!! Form::submit('検索') !!}
+    <div class="search_box">
+    {!! Form::text('s', $search ?? '',['class'=>'search_window','placeholder' => 'ユーザー名']) !!}
+    <button type="submit">
+    <img src="/images/search.png" class="search_icon">
+    </button>
+
+    @if(!empty($search))
+    <p class="search_word">検索ワード：{{ $search }}</p>
+    @endif
+
+    </div>
 {!! Form::close() !!}
-
-@if(!empty($search))
-    <p>検索ワード：{{ $search }}</p>
-@endif
-
 </div>
 
 @foreach($data as $user)
-<div>
-    <div>{{{ $user->images }}}</div>
+<div class="search_results">
+    <div><img src="{{ asset('/images/' . $user->images) }}" class="search_icon"></div>
     <div>{{{ $user->username }}}</div>
 </div>
 @endforeach
