@@ -23,6 +23,29 @@
     <div><img src="{{ asset('/images/' . $user->images) }}" class="search_icon"></div>
     <div>{{{ $user->username }}}</div>
 </div>
+
+@auth
+    @if (Auth::user()->id !== $user->id)
+        @if (Auth::user()->isFollowing($user->id))
+            {{-- フォロー解除 --}}
+            <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-outline-danger">
+                    フォロー解除
+                </button>
+            </form>
+        @else
+            {{-- フォロー --}}
+            <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-primary">
+                    フォローする
+                </button>
+            </form>
+        @endif
+    @endif
+@endauth
+
 @endforeach
 
 @endsection

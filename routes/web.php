@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PostsController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\UsersController;
+use App\Http\Controllers\FollowsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,24 +54,37 @@ Route::get('/added', function () {
 Route::get('/top', [PostsController::class, 'index'])->middleware('auth');
 Route::post('/top', [PostsController::class, 'form'])->middleware('auth');
 
-//ログイン中のページ
+//ログイン中のページ表示
 Route::get('/profile', [UsersController::class, 'profile'])->middleware('auth');
 
 // ユーザー検索ページに飛ぶ
 Route::get('/search', [UsersController::class, 'search'])->middleware('auth');
 
-// 検索結果表示ルート
+// 検索結果表示
 Route::get('/search/form',[UsersController::class,'search']);
 
+// フォローリスト表示
 Route::get('/follow-list', [HomeController::class, 'followList'])->middleware('auth');
 
+// フォロワーリスト表示
 Route::get('/follower-list', [HomeController::class, 'followerList'])->middleware('auth');
 
+// 投稿削除
 Route::get('/post/{id}/delete', [PostsController::class, 'delete'])->middleware('auth');
 
+// 投稿更新
 Route::post('/post/update',[PostsController::class, 'update'])
 ->middleware('auth')
 ->name('post.update');
 
-// Route::get('/logout', 'Auth\LoginController@login');
-// Route::post('/logout', 'Auth\LoginController@login');
+//プロフィール閲覧で使用するユーザー情報の取得
+Route::get('/profile/{id}',[UsersController::class,'get_user']);
+
+//フォロー状態の確認
+Route::get('/follow/status/{id}',[FollowsController::class,'check_following']);
+
+//フォロー付与
+Route::post('/users/{id}/follow', [FollowsController::class, 'following'])->name('follow');
+
+//フォロー解除
+Route::post('/users/{id}/unfollow', [FollowsController::class, 'unfollowing'])->name('unfollow');

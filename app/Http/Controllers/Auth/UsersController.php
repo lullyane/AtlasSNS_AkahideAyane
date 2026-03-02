@@ -31,4 +31,12 @@ class UsersController extends Controller
         // ビューファイルに渡す
         return view('users.search', compact('data', 'search'));
     }
+
+
+    //プロフィール閲覧で使用するユーザー情報の取得
+    public function get_user($user_id){
+
+        $user = User::with('following')->with('followed')->findOrFail($user_id);
+        return response()->json($user);
+    }
 }
