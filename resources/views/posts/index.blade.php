@@ -69,7 +69,7 @@
       <input type="hidden" name="id" id="editId">
       <div class="modal_box">
       <textarea name="post" id="editText"></textarea>
-      <button type="submit"><img src="/images/edit.png" class="modal_button"></button>
+      <button type="submit" class="update_button"><img src="/images/edit.png" class="modal_button"></button>
       </div>
     </form>
   </div>

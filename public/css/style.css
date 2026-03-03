@@ -397,6 +397,12 @@ button {
     margin-top: 20px;
 }
 
+.update_button {
+    width: 30px;
+    height: auto;
+    margin-left: 300px;
+}
+
 /* テキストエリアの高さ自動調整 */
 textarea {
     field-sizing: content;
