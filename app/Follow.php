@@ -21,4 +21,10 @@ class Follow extends Model
         return $this->belongsTo(User::class, 'followed_id');
     }
 
+    // following_idが$user_idと一致する行を探す
+    // 一致したレコードをコレクションとしてgetで取得し、Postsコントローラーファイルに返す
+    public function followingIds($user_id)
+    {
+    return $this->where('following_id', $user_id)->get();
+    }
 }

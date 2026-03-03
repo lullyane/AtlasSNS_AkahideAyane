@@ -5,14 +5,36 @@ namespace App\Http\Controllers\Auth;
 use App\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+//Followモデルをインポート
+use App\Follow;
+// Authファサードを読み込む
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
-    //投稿フォームを表示
-    public function index()
+    //投稿一覧表示（ログインユーザー/フォローしているユーザーのみ）
+    public function index(Follow $follow)
     {
-        $posts = Post::orderBy('id','desc')->get();
-        return view('posts.index' , compact('posts'));
+    // ログインしているユーザーの情報取得
+    $user = auth()->user();
+
+    // 自分がフォローしているユーザーID一覧を取得
+    $follow_ids = $follow->followingIds($user->id)
+                         ->pluck('followed_id')
+                         ->toArray();
+    // followモデルのfollowingIds()を呼び出して、フォローしているユーザーのレコード一覧（コレクション）を取得する
+    // コレクションの中からfollowed_idの値だけを取り出す
+    // コレクションの状態からarrayに変換してwhereInに渡せる形にする
+
+    // 自分自身のIDも含める
+    $target_ids = array_merge([$user->id], $follow_ids);
+
+    // 自分＋フォローしているユーザーの投稿だけ取得
+    $posts = Post::whereIn('user_id', $target_ids)
+                 ->orderBy('id', 'desc')
+                 ->get();
+
+    return view('posts.index', compact('posts'));
     }
 
     // 投稿を保存する
