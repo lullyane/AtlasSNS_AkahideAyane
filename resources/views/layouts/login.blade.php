@@ -8,6 +8,8 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+    <!-- ボタン -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -34,7 +36,6 @@
                 </div>
                 <!-- アコーディオンメニュー -->
                 <nav class="menu_nav">
-                    <div class="nav_wrapper">
                         <ul>
                             <li class="nav_item"><a href="/top">HOME</a></li>
                             <li class="nav_item"><a href="/profile">プロフィール編集</a></li>
@@ -47,7 +48,6 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
                 </nav>
                 <!-- ⭐ログイン中のユーザーのアイコンが表示されるように変える必要あり -->
                 <img class="profile_item profile_icon" src="images/icon1.png">
@@ -74,7 +74,7 @@
                         @endauth
                     </div>
                     <div class="side_space">
-                        <a class="btn btn-primary follow_button" href="/follow-list" role="button">フォローリスト</a>
+                        <a class="follow_button" href="/follow-list" role="button">フォローリスト</a>
                     </div>
                     <div class="side_block">
                         <p class="side_item side_space">フォロワー数</p>
@@ -86,11 +86,11 @@
                     </div>
                 </div>
                 <div class="side_space">
-                    <a class="btn btn-primary follow_button" href="/follower-list" role="button">フォロワーリスト</a>
+                    <a class="follow_button" href="/follower-list" role="button">フォロワーリスト</a>
                 </div>
             </div>
             <div class="side_divider">
-                <a class="btn btn-primary search_page_button" href="/search" role="button">ユーザー検索</a>
+                <a class="search_page_button" href="/search" role="button">ユーザー検索</a>
             </div>
         </div>
     </div>

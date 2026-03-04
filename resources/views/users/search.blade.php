@@ -20,32 +20,40 @@
 
 @foreach($data as $user)
 <div class="search_results">
-    <div><img src="{{ asset('/images/' . $user->images) }}" class="search_icon"></div>
-    <div>{{{ $user->username }}}</div>
+
+    <div class="user_row">
+
+        <div class="user_icon">
+            <img src="{{ asset('/images/' . $user->images) }}" class="search_icon">
+        </div>
+
+        <div class="user_name">
+            {{{ $user->username }}}
+        </div>
+
+        @auth
+            @if (Auth::user()->id !== $user->id)
+                @if (Auth::user()->isFollowing($user->id))
+                    <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn unfollow">
+                            フォロー解除
+                        </button>
+                    </form>
+                @else
+                    <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn follow">
+                            フォローする
+                        </button>
+                    </form>
+                @endif
+            @endif
+        @endauth
+
+    </div>
+
 </div>
-
-@auth
-    @if (Auth::user()->id !== $user->id)
-        @if (Auth::user()->isFollowing($user->id))
-            {{-- フォロー解除 --}}
-            <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
-                @csrf
-                <button type="submit" class="btn btn-outline-danger">
-                    フォロー解除
-                </button>
-            </form>
-        @else
-            {{-- フォロー --}}
-            <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
-                @csrf
-                <button type="submit" class="btn btn-primary">
-                    フォローする
-                </button>
-            </form>
-        @endif
-    @endif
-@endauth
-
 @endforeach
 
 @endsection
