@@ -497,3 +497,29 @@ button.btn.follow {
     font-weight: 300;
     background-color: #52ACFF;
 }
+
+/* ================================ */
+/* プロフィール編集ページ */
+/* ================================ */
+.edit_profile {
+    display: flex;
+    margin: 70px 0 0 200px;
+    gap: 30px;
+}
+
+.profile_item .row {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.profile_item .item {
+    width: 200px;
+    font-size: 16px;
+}
+
+.edit_profile input {
+    width: 300px;
+    background-color: #EFEFEF;
+    border: 1px solid #909090;
+    padding-left: 10px;
+}
