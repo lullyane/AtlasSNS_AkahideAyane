@@ -24,7 +24,9 @@
 <body>
     <header>
         <div class="head">
-            <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+            <h1><a href="/top">
+                <img src="{{ asset('images/atlas.png') }}">
+            </a></h1>
             <div class="head_right">
                 @auth
                 <p class="profile_item profile_name">{{ Auth::user()->username }}</p> <p class="profile_item profile_name">さん</p>
@@ -50,8 +52,8 @@
                         </ul>
                 </nav>
                 @if(Auth::check())
-                <img src="{{ asset('storage/images/' . Auth::user()->images) }}" alt="プロフィール画像" class="profile_item profile_icon">
-                @endif
+                <img src="{{ asset('storage/' . Auth::user()->images) }}" alt="プロフィール画像" class="profile_item profile_icon">
+                 @endif
             </div>
         </div>
     </header>

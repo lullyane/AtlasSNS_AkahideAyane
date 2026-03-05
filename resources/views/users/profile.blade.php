@@ -4,20 +4,22 @@
 <div class="edit_profile">
   <div class="user_icon">
     @if(Auth::check())
-    <img src="{{ asset('storage/images/' . Auth::user()->images) }}" alt="プロフィール画像">
+    <img src="{{ asset('storage/' . Auth::user()->images) }}" alt="プロフィール画像">
     @endif
   </div>
-  {!! Form::open(['url' => '/profile']) !!}
+  {!! Form::open(['url' => '/profile','method' => 'PUT', 'files' => true]) !!}
+  @csrf
+  @method('PUT')
   <div class="profile_item">
     <div class="row">
                 <!-- ↓for属性(省略不可) ↓ラベルに表示される文字 -->
       {{ Form::label('username','ユーザー名',['class' => 'item']) }}
                 <!-- ↓name属性(省略不可) ↓初期値 -->
-      {{ Form::text('username',old('username'),['class' => 'input']) }}
+      {{ Form::text('username',old('username',$user->username),['class' => 'input']) }}
     </div>
     <div class="row">
       {{ Form::label('mail','メールアドレス',['class' => 'item']) }}
-      {{ Form::text('mail',old('mail'),['class' => 'input']) }}
+      {{ Form::text('mail',old('mail',$user->mail),['class' => 'input']) }}
     </div>
     <div class="row">
       {{ Form::label('password','パスワード',['class' => 'item']) }}
@@ -29,14 +31,14 @@
     </div>
     <div class="row">
       {{ Form::label('bio','自己紹介',['class' => 'item']) }}
-      {{ Form::textarea('bio',old('bio'),['class' => 'input']) }}
+      {{ Form::textarea('bio',old('bio',$user->bio),['class' => 'input']) }}
     </div>
     <div class="row file">
       {{ Form::label('images','アイコン画像',['class' => 'item']) }}
       {{ Form::file('images',['class' => 'input']) }}
       <span class="file-display">ファイルを選択</span>
     </div>
-    {{ Form::submit('新規登録') }}
+    {{ Form::submit('更新') }}
   </div>
   {!! Form::close() !!}
 </div>

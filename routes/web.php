@@ -56,6 +56,10 @@ Route::post('/top', [PostsController::class, 'form'])->middleware('auth');
 
 //ログイン中のページ表示
 Route::get('/profile', [UsersController::class, 'profile'])->middleware('auth');
+// プロフィール情報更新
+Route::get('/profile/edit', [UsersController::class, 'edit'])->name('profile.edit');
+Route::put('/profile', [UsersController::class, 'update'])->name('profile.update');
+// 上記については /profile/edit より下に持っていったらだめ
 
 // ユーザー検索ページに飛ぶ
 Route::get('/search', [UsersController::class, 'search'])->middleware('auth');
@@ -88,5 +92,3 @@ Route::post('/users/{id}/follow', [FollowsController::class, 'following'])->name
 
 //フォロー解除
 Route::post('/users/{id}/unfollow', [FollowsController::class, 'unfollowing'])->name('unfollow');
-
-Route::post('/user/image', [UsersController::class,'update_image'])->name('user.image.update')->middleware('auth');

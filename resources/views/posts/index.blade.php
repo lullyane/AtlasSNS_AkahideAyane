@@ -5,7 +5,7 @@
 <form action="/top" method="post" class="post_form">
   <div class="form_box">
     @if(Auth::check())
-    <img src="{{ asset('storage/images/' . Auth::user()->images) }}" alt="プロフィール画像" class="form_icon">
+    <img src="{{ asset('storage/' . Auth::user()->images) }}" alt="プロフィール画像" class="profile_item profile_icon" class="form_icon">
     @endif
     <!-- CSRF攻撃対策 -->
     @csrf
