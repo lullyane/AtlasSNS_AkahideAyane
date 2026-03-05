@@ -88,3 +88,5 @@ Route::post('/users/{id}/follow', [FollowsController::class, 'following'])->name
 
 //フォロー解除
 Route::post('/users/{id}/unfollow', [FollowsController::class, 'unfollowing'])->name('unfollow');
+
+Route::post('/user/image', [UsersController::class,'update_image'])->name('user.image.update')->middleware('auth');

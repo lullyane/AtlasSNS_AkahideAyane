@@ -517,9 +517,26 @@ button.btn.follow {
     font-size: 16px;
 }
 
-.edit_profile input {
+.edit_profile input,
+.edit_profile textarea {
     width: 300px;
     background-color: #EFEFEF;
+    /* これがないと初期値入ったときに色変わっちゃう */
+    box-shadow: 0 0 0px 1000px #EFEFEF inset !important;
     border: 1px solid #909090;
-    padding-left: 10px;
+    padding: 0 0 5px 10px;
+    resize: none;
+}
+
+.profile_item .row .file {
+    position: relative;
+    width: 200px;
+    /* 好きな幅に調整してね */
+    height: 40px;
+    background: #EFEFEF;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }

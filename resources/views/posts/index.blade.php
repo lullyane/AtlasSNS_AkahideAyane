@@ -4,7 +4,9 @@
 
 <form action="/top" method="post" class="post_form">
   <div class="form_box">
-    <img class="form_icon" src="images/icon1.png">
+    @if(Auth::check())
+    <img src="{{ asset('storage/images/' . Auth::user()->images) }}" alt="プロフィール画像" class="form_icon">
+    @endif
     <!-- CSRF攻撃対策 -->
     @csrf
     <textarea name="post" placeholder="投稿内容を入力してください"></textarea>

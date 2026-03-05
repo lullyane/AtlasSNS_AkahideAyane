@@ -1,37 +1,44 @@
 @extends('layouts.login')
 
 @section('content')
-<form action="" >
-  <div class="edit_profile">
+<div class="edit_profile">
   <div class="user_icon">
-    <img src="images/icon1.png">
+    @if(Auth::check())
+    <img src="{{ asset('storage/images/' . Auth::user()->images) }}" alt="プロフィール画像">
+    @endif
   </div>
+  {!! Form::open(['url' => '/profile']) !!}
   <div class="profile_item">
     <div class="row">
-    <p class="item">ユーザー名</p>
-    <p class="form"><input type="text"></p>
+                <!-- ↓for属性(省略不可) ↓ラベルに表示される文字 -->
+      {{ Form::label('username','ユーザー名',['class' => 'item']) }}
+                <!-- ↓name属性(省略不可) ↓初期値 -->
+      {{ Form::text('username',old('username'),['class' => 'input']) }}
     </div>
     <div class="row">
-    <p class="item">メールアドレス</p>
-    <p><input type="text"></p>
+      {{ Form::label('mail','メールアドレス',['class' => 'item']) }}
+      {{ Form::text('mail',old('mail'),['class' => 'input']) }}
     </div>
     <div class="row">
-    <p class="item">パスワード</p>
-    <p><input type="text"></p>
+      {{ Form::label('password','パスワード',['class' => 'item']) }}
+      {{ Form::password('password',['class' => 'input']) }}
     </div>
     <div class="row">
-    <p class="item">パスワード確認</p>
-    <p><input type="text"></p>
+      {{ Form::label('password_confirmation','パスワード確認',['class' => 'item']) }}
+      {{ Form::password('password_confirmation',['class' => 'input']) }}
     </div>
     <div class="row">
-    <p class="item">自己紹介</p>
-    <p><input type="text"></p>
+      {{ Form::label('bio','自己紹介',['class' => 'item']) }}
+      {{ Form::textarea('bio',old('bio'),['class' => 'input']) }}
     </div>
-    <div class="row">
-    <p class="item">アイコン画像</p>
-    <p><input type="text"></p>
+    <div class="row file">
+      {{ Form::label('images','アイコン画像',['class' => 'item']) }}
+      {{ Form::file('images',['class' => 'input']) }}
+      <span class="file-display">ファイルを選択</span>
     </div>
-    </div>
+    {{ Form::submit('新規登録') }}
   </div>
-</form>
+  {!! Form::close() !!}
+</div>
+
 @endsection

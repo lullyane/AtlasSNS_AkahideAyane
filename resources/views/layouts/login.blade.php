@@ -49,8 +49,9 @@
                             </li>
                         </ul>
                 </nav>
-                <!-- ⭐ログイン中のユーザーのアイコンが表示されるように変える必要あり -->
-                <img class="profile_item profile_icon" src="images/icon1.png">
+                @if(Auth::check())
+                <img src="{{ asset('storage/images/' . Auth::user()->images) }}" alt="プロフィール画像" class="profile_item profile_icon">
+                @endif
             </div>
         </div>
     </header>
