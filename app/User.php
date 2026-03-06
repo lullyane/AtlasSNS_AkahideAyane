@@ -18,6 +18,19 @@ class User extends Authenticatable
         'username', 'mail', 'password', 'bio', 'images'
     ];
 
+
+    // ユーザーのアイコン未登録時は icon1.png が表示されるようにする
+    protected static function boot()
+    {
+    parent::boot();
+
+    static::creating(function ($user) {
+        if (empty($user->images)) {
+            $user->images = 'images/icon1.png';
+        }
+    });
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
