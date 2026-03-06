@@ -562,3 +562,16 @@ button.follow {
     font-weight: 300;
     background-color: #ED3A50;
 }
+
+/* ================================ */
+/* フォロー/フォロワーリスト */
+/* ================================ */
+
+.follow_top {
+    display: flex;
+    font-size: 20px;
+}
+
+.follow_img {
+    margin-left: 50px;
+}

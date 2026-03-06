@@ -2,9 +2,14 @@
 
 @section('content')
 
-<form action="/top" method="post" class="post_form">
-
-</form>
+<div class="post_form follow_top">
+  <p>フォローリスト</p>
+  <div class="follow_img">
+  @foreach ($posts as $post)
+  <img class="form_icon" src="{{ $post->user->images }}">
+  @endforeach
+  </div>
+</div>
 
 @foreach ($posts as $post)
 <div class="list">
