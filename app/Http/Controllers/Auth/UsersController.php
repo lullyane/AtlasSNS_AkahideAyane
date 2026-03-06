@@ -52,7 +52,7 @@ class UsersController extends Controller
         'username' => 'required|between:2,12',
         'mail' => 'required|between:5,40|unique:users,mail,' . $user->id . '|email',
         // パスワード確認は自動で参照される
-        'password' => 'nullable|alpha_num|between:8,20|confirmed',
+        'password' => 'required|nullable|alpha_num|between:8,20|confirmed',
         'bio' => 'nullable|max:150',
         'images' => 'nullable|image'
     ]);
@@ -77,12 +77,6 @@ class UsersController extends Controller
 
     $user->save();
 
-    return redirect()->route('profile.edit')->with('status', 'profile-updated');
+    return redirect('/profile');
     }
-
-    public function edit(){
-    $user = Auth::user();
-    return view('users.profile', compact('user'));
-    }
-
 }

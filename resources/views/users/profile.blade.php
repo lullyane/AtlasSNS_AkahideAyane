@@ -9,7 +9,6 @@
   </div>
   {!! Form::open(['url' => '/profile','method' => 'PUT', 'files' => true]) !!}
   @csrf
-  @method('PUT')
   <div class="profile_item">
     <div class="row">
                 <!-- ↓for属性(省略不可) ↓ラベルに表示される文字 -->
