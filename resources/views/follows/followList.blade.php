@@ -4,11 +4,11 @@
 
 <div class="post_form follow_top">
   <p>フォローリスト</p>
-  <div class="follow_img">
+  <a class="follow_img" href="/other-profile">
   @foreach ($users as $user)
   <img class="form_icon" src="{{ asset('storage/' . $user->images) }}">
   @endforeach
-  </div>
+  </a>
 </div>
 
 @foreach ($posts as $post)
