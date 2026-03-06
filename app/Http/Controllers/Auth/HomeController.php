@@ -42,11 +42,6 @@ class HomeController extends Controller
     return view('users.show', compact('user'));
     }
 
-    // フォローページへの移動
-    public function followList(){
-    return view('follows.followList');
-    }
-
     // フォロワーページへの移動
     public function followerList(){
     return view('follows.followerList');

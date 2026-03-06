@@ -67,10 +67,10 @@ Route::get('/search', [UsersController::class, 'search'])->middleware('auth');
 // 検索結果表示
 Route::get('/search/form',[UsersController::class,'search']);
 
-// フォローリスト表示
-Route::get('/follow-list', [HomeController::class, 'followList'])->middleware('auth');
+// フォローユーザーページ表示
+Route::get('/follow-list',[PostsController::class, 'followList'])->middleware('auth');
 
-// フォロワーリスト表示
+// フォロワーページ表示
 Route::get('/follower-list', [HomeController::class, 'followerList'])->middleware('auth');
 
 // 投稿削除

@@ -79,6 +79,27 @@ class PostsController extends Controller
 
     return redirect('/top')->with('success', '更新しました');
     }
+
+    //フォローユーザーの投稿一覧表示
+    public function followList(Follow $follow)
+    {
+    // ログインしているユーザーの情報取得
+    $user = auth()->user();
+
+    // 自分がフォローしているユーザーID一覧を取得
+    $follow_ids = $follow->followingIds($user->id)
+                         ->pluck('followed_id')
+                         ->toArray();
+
+    // フォローしているユーザーの投稿だけ取得
+    $posts = Post::whereIn('user_id', $follow_ids)
+                 ->orderBy('id', 'desc')
+                 ->get();
+
+    //フォローユーザー一覧ページ表示
+    //$postsの変数をビューに渡す
+    return view('follows.followList', compact('posts'));
+    }
 }
 
 // (Request $request)は登録済みの情報が詰まってる箱から値を取り出すのに必要な引数
