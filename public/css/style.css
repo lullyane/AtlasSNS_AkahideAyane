@@ -476,7 +476,7 @@ textarea {
 }
 
 /* ボタンの幅を統一 */
-button.btn.unfollow {
+button.unfollow {
     width: 130px;
     text-align: center;
     margin-left: 100px;
@@ -487,7 +487,7 @@ button.btn.unfollow {
     background-color: #ED3833;
 }
 
-button.btn.follow {
+button.follow {
     width: 130px;
     text-align: center;
     margin-left: 100px;
@@ -503,7 +503,7 @@ button.btn.follow {
 /* ================================ */
 .edit_profile {
     display: flex;
-    margin: 70px 0 0 200px;
+    margin: 50px 0 0 200px;
     gap: 30px;
 }
 
@@ -518,8 +518,9 @@ button.btn.follow {
 }
 
 .edit_profile input,
-.edit_profile textarea {
-    width: 300px;
+.edit_profile textarea,
+.file_wrapper {
+    width: 350px;
     background-color: #EFEFEF;
     /* これがないと初期値入ったときに色変わっちゃう */
     box-shadow: 0 0 0px 1000px #EFEFEF inset !important;
@@ -528,15 +529,36 @@ button.btn.follow {
     resize: none;
 }
 
-.profile_item .row .file {
-    position: relative;
-    width: 200px;
-    /* 好きな幅に調整してね */
-    height: 40px;
-    background: #EFEFEF;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* ユーザーアイコン画像フォーム */
+.file-input {
+    display: none;
+}
+
+.file_wrapper {
+    height: 100px;
+    text-align: center;
+    padding: 0;
+}
+
+.file_label {
+    display: inline-block;
+    margin-top: 30px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 30px;
+    color: #ABABAB;
     cursor: pointer;
+}
+
+/* 更新ボタン */
+.profile_item button {
+    margin-left: 120px;
+
+    width: 140px;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 300;
+    background-color: #ED3A50;
 }

@@ -35,10 +35,14 @@
     </div>
     <div class="row file">
       {{ Form::label('images','アイコン画像',['class' => 'item']) }}
-      {{ Form::file('images',['class' => 'input']) }}
-      <span class="file-display">ファイルを選択</span>
+      <div class="file_wrapper">
+        <label for="images" class="file_label">ファイルを選択</label>
+        {{ Form::file('images', ['id' => 'images', 'class' => 'file-input']) }}
+      </div>
     </div>
-    {{ Form::submit('更新') }}
+      <button type="submit">
+        更新
+      </button>
   </div>
   {!! Form::close() !!}
 </div>
