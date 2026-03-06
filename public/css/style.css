@@ -574,4 +574,13 @@ button.follow {
 
 .follow_img {
     margin-left: 50px;
+    width: 450px;
+    height: auto;
+}
+
+.follow_img img {
+    /* .follow_imgの幅超えたら折り返し */
+    display: inline-block;
+    /* その際下に余白10pxつくる */
+    margin-bottom: 10px;
 }

@@ -5,8 +5,8 @@
 <div class="post_form follow_top">
   <p>フォローリスト</p>
   <div class="follow_img">
-  @foreach ($posts as $post)
-  <img class="form_icon" src="{{ $post->user->images }}">
+  @foreach ($users as $user)
+  <img class="form_icon" src="{{ asset('storage/' . $user->images) }}">
   @endforeach
   </div>
 </div>

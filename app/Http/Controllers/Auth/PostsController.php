@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Post;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-//Followモデルをインポート
+
 use App\Follow;
 // Authファサードを読み込む
 use Illuminate\Support\Facades\Auth;
@@ -91,6 +92,11 @@ class PostsController extends Controller
                          ->pluck('followed_id')
                          ->toArray();
 
+    // フォローしているユーザーのアイコン取得
+    $users = User::whereIn('id', $follow_ids)
+                 ->orderBy('id', 'desc')
+                 ->get();
+
     // フォローしているユーザーの投稿だけ取得
     $posts = Post::whereIn('user_id', $follow_ids)
                  ->orderBy('id', 'desc')
@@ -98,7 +104,7 @@ class PostsController extends Controller
 
     //フォローユーザー一覧ページ表示
     //$postsの変数をビューに渡す
-    return view('follows.followList', compact('posts'));
+    return view('follows.followList', compact('posts','users'));
     }
 }
 
