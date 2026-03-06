@@ -24,7 +24,7 @@
     <div class="user_row">
 
         <div class="user_icon">
-            <img src="{{ asset('/images/' . $user->images) }}" class="search_icon">
+            <img src="{{ ($user->images) }}" class="search_icon">
         </div>
 
         <div class="user_name">
