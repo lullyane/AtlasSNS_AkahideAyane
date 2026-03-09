@@ -586,3 +586,48 @@ button.follow {
     /* その際、下に余白10pxつくる */
     margin-bottom: 10px;
 }
+
+/* ================================ */
+/* 該当ユーザーのプロフィール画面 */
+/* ================================ */
+.others_top {
+    display: flex;
+    padding: 45px 0 15px 85px;
+}
+
+.others_user {
+    margin-left: 20px;
+    width: 450px;
+}
+
+.others_block {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.others_block .item {
+    width: 150px;
+}
+
+button.follow_unfollow {
+    width: 130px;
+    text-align: center;
+    margin: 50px 0 0 240px;
+
+    font-size: 14px;
+    color: #fff;
+    font-weight: 300;
+    background-color: #ED3833;
+}
+
+button.follow_follow {
+    width: 130px;
+    text-align: center;
+    margin: 50px 0 0 240px;
+
+    font-size: 14px;
+    color: #fff;
+    font-weight: 300;
+    background-color: #52ACFF;
+}
