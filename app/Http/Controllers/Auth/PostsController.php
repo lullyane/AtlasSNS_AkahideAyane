@@ -106,6 +106,30 @@ class PostsController extends Controller
     //$postsの変数をビューに渡す
     return view('follows.followList', compact('posts','users'));
     }
+
+    //該当ユーザーのプロフィールページ：投稿一覧表示
+    public function othersProfile(Request $request)
+    {
+    // /profile/{id} で渡された変数を $id に格納する
+    $id = $request->id;
+
+    // アイコン取得
+    $users = User::where('id', $id)
+                 ->orderBy('id', 'desc')
+                 ->get();
+    // ポイント：今回はURLで{id}を取得していて、これは「単体の値」である
+    // そのため、where()で値を取得する必要がある
+    // （whereIn()は配列（複数）専用な点に注意）
+
+    // 投稿取得
+    $posts = Post::where('user_id', $id)
+                 ->orderBy('id', 'desc')
+                 ->get();
+
+    //フォローユーザー一覧ページ表示
+    //$postsの変数をビューに渡す
+    return view('users.othersProfile', compact('posts','users'));
+    }
 }
 
 // (Request $request)は登録済みの情報が詰まってる箱から値を取り出すのに必要な引数

@@ -570,6 +570,8 @@ button.follow {
 .follow_top {
     display: flex;
     font-size: 20px;
+    /* form_iconの余白分を調整 */
+    padding: 25px 0 15px 85px;
 }
 
 .follow_img {
@@ -578,9 +580,9 @@ button.follow {
     height: auto;
 }
 
-.follow_img img {
+.form_icon {
     /* .follow_imgの幅超えたら折り返し */
     display: inline-block;
-    /* その際下に余白10pxつくる */
+    /* その際、下に余白10pxつくる */
     margin-bottom: 10px;
 }

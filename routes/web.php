@@ -91,3 +91,6 @@ Route::post('/users/{id}/follow', [FollowsController::class, 'following'])->name
 
 //フォロー解除
 Route::post('/users/{id}/unfollow', [FollowsController::class, 'unfollowing'])->name('unfollow');
+
+// 該当ユーザーのプロフィール画面表示
+Route::get('/profile/{id}',[PostsController::class, 'othersProfile']);
