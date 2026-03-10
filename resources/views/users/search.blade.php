@@ -20,13 +20,10 @@
 
 @foreach($data as $user)
 <div class="search_results">
-
     <div class="user_row">
-
         <div class="user_icon">
-            <img src="{{ ($user->images) }}" class="search_icon">
+            <a href="/profile/{{ $user->id }}"><img src="{{ asset('storage/' . $user->images) }}"></a>
         </div>
-
         <div class="user_name">
             {{{ $user->username }}}
         </div>
@@ -50,9 +47,7 @@
                 @endif
             @endif
         @endauth
-
     </div>
-
 </div>
 @endforeach
 
