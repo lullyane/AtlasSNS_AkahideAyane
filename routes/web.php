@@ -70,7 +70,7 @@ Route::get('/search/form',[UsersController::class,'search']);
 Route::get('/follow-list',[PostsController::class, 'followList'])->middleware('auth');
 
 // フォロワーページ表示
-Route::get('/follower-list', [HomeController::class, 'followerList'])->middleware('auth');
+Route::get('/follower-list', [PostsController::class,'followerList'])->middleware('auth');
 
 // 投稿削除
 Route::get('/post/{id}/delete', [PostsController::class, 'delete'])->middleware('auth');

@@ -107,6 +107,32 @@ class PostsController extends Controller
     return view('follows.followList', compact('posts','users'));
     }
 
+    //フォロワーの投稿一覧表示
+    public function followerList(follow $follow)
+    {
+    // ログインしているユーザーの情報取得
+    $user = auth()->user();
+
+    // フォロワーのID一覧を取得
+    $follower_ids = $follow->followedIds($user->id)
+                         ->pluck('following_id')
+                         ->toArray();
+
+    // フフォロワーのアイコン取得
+    $users = User::whereIn('id', $follower_ids)
+                 ->orderBy('id', 'desc')
+                 ->get();
+
+    // フォロワーの投稿だけ取得
+    $posts = Post::whereIn('user_id', $follower_ids)
+                 ->orderBy('id', 'desc')
+                 ->get();
+
+    //フォローユーザー一覧ページ表示
+    //$postsの変数をビューに渡す
+    return view('follows.followerList', compact('posts','users'));
+    }
+
     //該当ユーザーのプロフィールページ：投稿一覧表示
     public function othersProfile(Request $request)
     {
