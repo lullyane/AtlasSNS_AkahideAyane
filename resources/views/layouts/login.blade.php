@@ -61,7 +61,7 @@
         <div id="container">
             @yield('content')
         </div >
-        <div id="side-bar">
+        <div id="sideBar">
             <div id="confirm">
                 @auth
                 <!-- 「ログイン中のユーザー名表示」 -->

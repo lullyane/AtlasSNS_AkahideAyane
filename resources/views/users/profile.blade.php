@@ -36,7 +36,7 @@
       {{ Form::label('images','アイコン画像',['class' => 'item']) }}
       <div class="file_wrapper">
         <label for="images" class="file_label">ファイルを選択</label>
-        {{ Form::file('images', ['id' => 'images', 'class' => 'file-input']) }}
+        {{ Form::file('images', ['id' => 'images', 'class' => 'file_input']) }}
       </div>
     </div>
       <button type="submit">

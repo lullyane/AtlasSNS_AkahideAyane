@@ -154,14 +154,10 @@ h1 img {
 /* ================================ */
 /* サイドバー */
 /* ================================ */
-#side-bar {
+#sideBar {
     flex: 0 0 19%;
     border-left: 2px solid #727272;
     height: 100vh;
-}
-
-#horizontal_bar {
-    border-top: 1px solid #727272;
 }
 
 /* フォロー数/フォロワー数の位置固定 */
@@ -402,9 +398,9 @@ button {
 
 /* テキストエリアの高さ自動調整 */
 textarea {
+    /* 文字が白く表示されているものの適用されているのでそのまま利用 */
     field-sizing: content;
-    resize: none;
-    outline: none;
+    resize: none !important;
     padding: 20px;
 }
 
@@ -530,7 +526,7 @@ button.follow {
 }
 
 /* ユーザーアイコン画像フォーム */
-.file-input {
+.file_input {
     display: none;
 }
 
