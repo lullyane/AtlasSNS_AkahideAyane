@@ -12,12 +12,12 @@ class FollowsController extends Controller
 {
     //フォローリスト表示
     public function followList(){
-        return view('follows.followList');
+        return view('follows.follow_list');
     }
 
     // フォロワーリスト表示
     public function followerList(){
-        return view('follows.followerList');
+        return view('follows.follower_list');
     }
 
     //フォローしているかどうかの状態確認

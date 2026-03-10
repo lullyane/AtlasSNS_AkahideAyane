@@ -154,7 +154,7 @@ class PostsController extends Controller
 
     //フォローユーザー一覧ページ表示
     //$postsの変数をビューに渡す
-    return view('users.othersProfile', compact('posts','users'));
+    return view('users.others_profile', compact('posts','users'));
     }
 }
 
