@@ -41,4 +41,5 @@ class HomeController extends Controller
 
     return view('users.show', compact('user'));
     }
+    public function followerList(){
 }
