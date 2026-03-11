@@ -130,10 +130,7 @@ class PostsController extends Controller
 
     //フォローユーザー一覧ページ表示
     //$postsの変数をビューに渡す
-    return view('follows.followerList', compact('posts','users'));
-h   // ere('user_id', $id)
-                 ->orderBy('id', 'desc')
-                 ->get();
+    return view('follows.follower_list', compact('posts','users'));
     }
 
     // その他のユーザーのプロフィール画面表示
