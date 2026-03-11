@@ -2,7 +2,7 @@
 
 @section('content')
 
- @foreach ($users as $user)
+ @foreach ($user as $user)
 <div class="post_form others_top">
   <img class="form_icon" src="{{ asset('storage/' . $user->images) }}">
   <div class="others_user">

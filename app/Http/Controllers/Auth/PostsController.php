@@ -134,10 +134,18 @@ class PostsController extends Controller
 h   // ere('user_id', $id)
                  ->orderBy('id', 'desc')
                  ->get();
+    }
 
-    //フォローユーザー一覧ページ表示
+    // その他のユーザーのプロフィール画面表示
+    public function othersProfile($id)
+    {
+    $user = User::where('id',$id)->get();
+
+    $posts = Post::where('user_id',$id)->get();
+
+    //その他のユーザーのプロフィール画面表示
     //$postsの変数をビューに渡す
-    return view('users.others_profile', compact('posts','users'));
+    return view('users.others_profile', compact('posts','user'));
     }
 }
 
