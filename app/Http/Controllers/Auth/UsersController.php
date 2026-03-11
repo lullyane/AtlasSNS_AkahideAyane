@@ -37,7 +37,7 @@ class UsersController extends Controller
     }
 
     //プロフィール閲覧で使用するユーザー情報の取得
-    public function get_user($user_id){
+    public function getUser($user_id){
 
         $user = User::with('following')->with('followed')->findOrFail($user_id);
         return response()->json($user);

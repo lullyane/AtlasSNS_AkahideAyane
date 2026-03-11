@@ -1,7 +1,0 @@
-diff a/app/Http/Controllers/Auth/HomeController.php b/app/Http/Controllers/Auth/HomeController.php	(rejected hunks)
-@@ -41,5 +41,4 @@
- 
-     return view('users.show', compact('user'));
-     }
--    return view('follows.followerList');
- }

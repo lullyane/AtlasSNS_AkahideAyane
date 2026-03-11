@@ -81,10 +81,10 @@ Route::post('/post/update',[PostsController::class, 'update'])
 ->name('post.update');
 
 //プロフィール閲覧で使用するユーザー情報の取得
-Route::get('/profile/{id}',[UsersController::class,'get_user']);
+Route::get('/profile/{id}',[UsersController::class,'getUser']);
 
 //フォロー状態の確認
-Route::get('/follow/status/{id}',[FollowsController::class,'check_following']);
+Route::get('/follow/status/{id}',[FollowsController::class,'checkFollowing']);
 //フォロー付与
 Route::post('/users/{id}/follow', [FollowsController::class, 'following'])->name('follow');
 //フォロー解除
@@ -93,7 +93,7 @@ Route::post('/users/{id}/unfollow', [FollowsController::class, 'unfollow'])->nam
 //該当ユーザーのプロフィール画面表示
 Route::get('/profile/{id}',[PostsController::class, 'othersProfile']);
 //フォロー付与
-Route::post('/profile/{id}/follow', [FollowsController::class, 'following_follow'])->name('following_follow');
+Route::post('/profile/{id}/follow', [FollowsController::class, 'followingFollow'])->name('following_follow');
 //フォロー解除
-Route::post('/profile/{id}/unfollow', [FollowsController::class, 'unfollow_follow'])->name('unfollow_follow');
+Route::post('/profile/{id}/unfollow', [FollowsController::class, 'unfollowFollow'])->name('unfollow_follow');
 // name＝このルートをビューファイルで呼び出すときの名前
