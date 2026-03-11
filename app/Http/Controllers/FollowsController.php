@@ -34,7 +34,8 @@ class FollowsController extends Controller
         endif;
     }
 
-    //フォローする(中間テーブルをインサート)
+    //ユーザー検索ページの
+    //フォロー
     public function following(Request $request){
         //自分がフォローしているかどうか検索
         $check = Follow::where('following_id', Auth::id())->where('followed_id', $request->user_id);
@@ -49,7 +50,6 @@ class FollowsController extends Controller
 
         return redirect('/search');
     }
-
     //フォローを外す
     public function unfollow(Request $request){
         //削除対象のレコードを検索して削除
@@ -58,7 +58,8 @@ class FollowsController extends Controller
         return redirect('/search');
     }
 
-    //フォローリストから飛んだユーザーをフォローする(中間テーブルをインサート)
+    //ユーザーのプロフィールページの
+    //フォロー
     public function followingFollow(Request $request){
         //自分がフォローしているかどうか検索
         $check = Follow::where('following_id', Auth::id())->where('followed_id', $request->user_id);
@@ -73,7 +74,6 @@ class FollowsController extends Controller
 
         return redirect()->back();
     }
-
     //フォローを外す
     public function unfollowFollow(Request $request){
         //削除対象のレコードを検索して削除
