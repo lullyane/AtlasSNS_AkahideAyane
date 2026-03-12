@@ -63,8 +63,6 @@ class PostsController extends Controller
     // 投稿更新
     public function update(Request $request)
     {
-        // dd($request->all());
-
         $post = Post::find($request->id);
 
         if (!$post)
