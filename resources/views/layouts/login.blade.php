@@ -42,7 +42,7 @@
                             <li class="nav_item"><a href="/top">HOME</a></li>
                             <li class="nav_item"><a href="/profile">プロフィール編集</a></li>
                             <li class="nav_item">
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 </form>
                                 <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();">
