@@ -32,15 +32,4 @@ class HomeController extends Controller
     removeItem('token'); // ローカルストレージからトークンを削除
     return redirect('/login'); // ログインページにリダイレクト
 }
-
-    // フォロワーとフォローユーザーの件数表示
-    public function show($id)
-    {
-    $user = User::withCount(['followings', 'followers'])
-                ->findOrFail($id);
-
-    return view('users.show', compact('user'));
-    }
-    public function followerList(){
-}
 }
