@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <meta charset="utf-8" />
+        <meta charset="utf-8" />
         <!--IEブラウザ対策-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="ページの内容を表す文章" />
