@@ -4,21 +4,27 @@
 
 <form action="/top" method="post" class="post_form">
   <div class="form_box">
+    <div class="form_img">
     @if(Auth::check())
-    <img src="{{ asset('storage/' . Auth::user()->images) }}" class="profile_item profile_icon" alt="ユーザーアイコン">
+    <img src="{{ asset('storage/' . Auth::user()->images) }}" alt="ユーザーアイコン" class="form_icon">
     @endif
+    </div>
     <!-- CSRF攻撃対策 -->
     @csrf
     <textarea name="post" placeholder="投稿内容を入力してください"></textarea>
-    <button><img class="post" src="images/post.png" alt="投稿"></button>
+    <div class="img_wrap">
+      <button><img class="post" src="images/post.png" alt="投稿"></button>
+    </div>
   </div>
 </form>
 
 @foreach ($posts as $post)
 <div class="list">
   <div class="list_box">
+    <div>
     <!-- 投稿者のアイコン -->
     <img class="form_icon" src="{{ $post->user->images }}" alt="ユーザーアイコン">
+    </div>
 
     <div class="contents_box">
       <!-- 投稿ユーザー名 -->
@@ -38,10 +44,10 @@
         @if (Auth::check() && Auth::user()->id === $post->user_id)
 
         <!-- 編集ボタン -->
-         <button class="edit_btn" data-id="{{ $post->id }}"
-        data-text="{{ $post->post }}">
-          <img src="/images/edit.png" class="images_edit" alt="編集">
-        </button>
+        <div>
+          <button class="edit_btn" data-id="{{ $post->id }}"
+        data-text="{{ $post->post }}"><img src="/images/edit.png" class="images_edit" alt="編集"></button>
+        </div>
 
         <!-- 削除ボタン -->
         <form onsubmit="return confirm('本当に削除しますか？');">
@@ -71,7 +77,9 @@
       <input type="hidden" name="id" id="editId">
       <div class="modal_box">
       <textarea name="post" id="editText"></textarea>
+      <div>
       <button type="submit" class="update_button"><img src="/images/edit.png" class="modal_button" alt="更新"></button>
+      </div>
       </div>
     </form>
   </div>

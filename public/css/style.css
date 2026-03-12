@@ -56,6 +56,11 @@ h1 img {
     object-fit: contain;
 }
 
+/* ヘッダー右側のアイコンのspanのタグ */
+.img_wrap {
+    margin-top: 12px;
+}
+
 /* ----------------- */
 /* アコーディオンメニュー */
 /* ----------------- */
@@ -239,10 +244,10 @@ h1 img {
 
 .form_box {
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
-/* アイコンとフォームのサイズ */
+/* 一覧のアイコンとフォームのサイズ */
 .form_icon {
     width: 40px;
     height: 40px;
@@ -250,10 +255,11 @@ h1 img {
 
 .post_form textarea {
     width: 600px;
-    height: 80px;
+    height: 100px;
     border: none;
     outline: none;
     resize: none;
+    padding: 0 10px;
 }
 
 .post {

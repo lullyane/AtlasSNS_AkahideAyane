@@ -14,8 +14,10 @@
 @foreach ($posts as $post)
 <div class="list">
   <div class="list_box">
+    <div>
     <!-- 投稿者のアイコン -->
     <img class="form_icon" src="{{ $post->user->images }}" alt="ユーザーアイコン">
+    </div>
 
     <div class="contents_box">
       <!-- 投稿ユーザー名 -->

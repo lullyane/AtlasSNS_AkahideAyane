@@ -24,9 +24,14 @@
 <body>
     <header>
         <div class="head">
-            <h1><a href="/top">
-                <img src="{{ asset('images/atlas.png') }}" alt="Atlas">
-            </a></h1>
+            <!-- Atlasアイコン -->
+            <h1>
+                <div>
+                    <a href="/top"><img src="{{ asset('images/atlas.png') }}" alt="Atlas"></a>
+                </div>
+            </h1>
+
+            <!-- ヘッダー右側 -->
             <div class="head_right">
                 @auth
                 <p class="profile_item profile_name">{{ Auth::user()->username }}</p> <p class="profile_item profile_name">さん</p>
@@ -42,18 +47,16 @@
                             <li class="nav_item"><a href="/top">HOME</a></li>
                             <li class="nav_item"><a href="/profile">プロフィール編集</a></li>
                             <li class="nav_item">
-                                <form action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                </form>
-                                <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();">
-                                ログアウト
-                                </a>
+                                <form action="{{ route('logout') }}" method="POST" id="logout-form">@csrf</form>
+                                <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();">ログアウト</a>
                             </li>
                         </ul>
                 </nav>
+                <div class="img_wrap">
                 @if(Auth::check())
                 <img src="{{ asset('storage/' . Auth::user()->images) }}" alt="ユーザーアイコン" class="profile_item profile_icon">
                  @endif
+                </div>
             </div>
         </div>
     </header>
