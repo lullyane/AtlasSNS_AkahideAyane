@@ -18,23 +18,7 @@ use App\Http\Controllers\FollowsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
 Auth::routes();
-
-//ログアウト中のページ
-// Route::get('/login', 'Auth\LoginController@login');
-// Route::post('/login', 'Auth\LoginController@login');
-
-// Route::get('/register', 'Auth\RegisterController@register');
-// Route::post('/register', 'Auth\RegisterController@register');
-
-// Route::get('/added', 'Auth\RegisterController@added');
-// Route::post('/added', 'Auth\RegisterController@added');
 
 // register ビューファイルで新規登録したユーザー名を added ファイルに渡す
 Route::post('Auth/register', [RegisterController::class, 'register']);
