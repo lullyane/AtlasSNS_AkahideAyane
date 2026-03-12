@@ -51,7 +51,7 @@
             </div>
         </header>
         <main>
-            <div id="row">
+            <section id="row">
                 <div id="container">
                     @yield('content')
                 </div >
@@ -90,7 +90,7 @@
                         <a class="search_page_button" href="/search" role="button">ユーザー検索</a>
                     </div>
                 </div>
-            </div>
+            </section>
         </main>
         <footer></footer>
         <script src="{{ asset('/js/app.js') }}"></script>
