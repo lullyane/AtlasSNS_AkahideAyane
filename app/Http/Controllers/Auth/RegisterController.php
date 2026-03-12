@@ -70,6 +70,6 @@ class RegisterController extends Controller
             return redirect()->route('added');
 
         }
-        return view('auth.register');
+        return view('Auth.register');
     }
 }

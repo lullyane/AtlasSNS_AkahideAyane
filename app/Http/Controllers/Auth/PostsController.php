@@ -35,7 +35,7 @@ class PostsController extends Controller
                  ->orderBy('id', 'desc')
                  ->get();
 
-    return view('posts.index', compact('posts'));
+    return view('Posts.index', compact('posts'));
     }
 
     // 投稿を保存する
@@ -104,7 +104,7 @@ class PostsController extends Controller
 
     //フォローユーザー一覧ページ表示
     //$postsの変数をビューに渡す
-    return view('follows.follow_list', compact('posts','users'));
+    return view('Follows.follow_list', compact('posts','users'));
     }
 
     //フォロワーの投稿一覧表示
@@ -130,7 +130,7 @@ class PostsController extends Controller
 
     //フォローユーザー一覧ページ表示
     //$postsの変数をビューに渡す
-    return view('follows.follower_list', compact('posts','users'));
+    return view('Follows.follower_list', compact('posts','users'));
     }
 
     // その他のユーザーのプロフィール画面表示
@@ -142,7 +142,7 @@ class PostsController extends Controller
 
     //その他のユーザーのプロフィール画面表示
     //$postsの変数をビューに渡す
-    return view('users.others_profile', compact('posts','user'));
+    return view('Users.others_profile', compact('posts','user'));
     }
 }
 

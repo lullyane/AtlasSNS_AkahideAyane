@@ -13,7 +13,7 @@ class UsersController extends Controller
     //プロフィール画面表示
     public function profile(){
         $user = Auth::user();
-        return view('users.profile',compact('user'));
+        return view('Users.profile',compact('user'));
     }
 
 
@@ -33,7 +33,7 @@ class UsersController extends Controller
         $data = $query->get();
 
         // ビューファイルに渡す
-        return view('users.search', compact('data', 'search'));
+        return view('Users.search', compact('data', 'search'));
     }
 
     //プロフィール閲覧で使用するユーザー情報の取得
