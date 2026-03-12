@@ -384,7 +384,7 @@ button {
     z-index: 9999;
 }
 
-.modal_content {
+.modal_wrap {
     background: #fff;
     width: 50%;
     height: auto;
@@ -396,19 +396,24 @@ button {
     position: relative;
 }
 
-.modal_box {
+.modal_text {
     display: flex;
     flex-direction: column;
 }
 
-.modal_button {
-    margin-top: 20px;
+.update_button_wrap {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
 }
 
-.update_button {
+.modal_button {
+    display: inline-block;
+}
+
+.update_button img {
     width: 30px;
     height: auto;
-    margin-left: 300px;
 }
 
 /* テキストエリアの高さ自動調整 */

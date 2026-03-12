@@ -22,13 +22,15 @@ class User extends Authenticatable
     // ユーザーのアイコン未登録時は icon1.png が表示されるようにする
     protected static function boot()
     {
-    parent::boot();
+        parent::boot();
 
-    static::creating(function ($user) {
-        if (empty($user->images)) {
-            $user->images = 'images/icon1.png';
-        }
-    });
+        static::creating(function ($user)
+        {
+            if (empty($user->images))
+                {
+                    $user->images = 'images/icon1.png';
+                }
+        });
     }
 
     /**
@@ -43,13 +45,13 @@ class User extends Authenticatable
     // フォロー数カウント
     public function followings()
     {
-    return $this->hasMany(Follow::class, 'following_id');
+        return $this->hasMany(Follow::class, 'following_id');
     }
 
     // フォロワー数カウント
     public function followers()
     {
-    return $this->hasMany(Follow::class, 'followed_id');
+        return $this->hasMany(Follow::class, 'followed_id');
     }
 
     //フォローしているユーザー表示
@@ -73,13 +75,13 @@ class User extends Authenticatable
     //フォローと逆で、第二引数で “相手”、第三引数で “自分”を指すカラムを決める
     public function followed()
     {
-    return $this->belongsToMany(
-    User::class,'follows','followed_id','following_id');
+        return $this->belongsToMany(
+        User::class,'follows','followed_id','following_id');
     }
 
     // フォローしているかを判定
     public function isFollowing($userId)
     {
-    return $this->follows()->where('followed_id', $userId)->exists();
+        return $this->follows()->where('followed_id', $userId)->exists();
     }
 }

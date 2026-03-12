@@ -25,7 +25,7 @@ class Follow extends Model
     // Postsコントローラーで使うメソッド
     public function followingIds($user_id)
     {
-    return $this->where('following_id', $user_id)->get();
+        return $this->where('following_id', $user_id)->get();
     }
     // following_idが$user_idと一致する行を探す
     // 一致したレコードをコレクションとしてgetで取得し、Postsコントローラーファイルに返す
@@ -33,6 +33,6 @@ class Follow extends Model
     // ▼フォロワーリスト
     public function followedIds($user_id)
     {
-    return $this->where('followed_id', $user_id)->get();
+        return $this->where('followed_id', $user_id)->get();
     }
 }
