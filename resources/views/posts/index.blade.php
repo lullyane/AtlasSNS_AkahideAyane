@@ -5,12 +5,12 @@
 <form action="/top" method="post" class="post_form">
   <div class="form_box">
     @if(Auth::check())
-    <img src="{{ asset('storage/' . Auth::user()->images) }}" alt="プロフィール画像" class="profile_item profile_icon" class="form_icon">
+    <img src="{{ asset('storage/' . Auth::user()->images) }}" class="profile_item profile_icon" alt="ユーザーアイコン">
     @endif
     <!-- CSRF攻撃対策 -->
     @csrf
     <textarea name="post" placeholder="投稿内容を入力してください"></textarea>
-    <button><img class="post" src="images/post.png"></button>
+    <button><img class="post" src="images/post.png" alt="投稿"></button>
   </div>
 </form>
 
@@ -18,7 +18,7 @@
 <div class="list">
   <div class="list_box">
     <!-- 投稿者のアイコン -->
-    <img class="form_icon" src="{{ $post->user->images }}">
+    <img class="form_icon" src="{{ $post->user->images }}" alt="ユーザーアイコン">
 
     <div class="contents_box">
       <!-- 投稿ユーザー名 -->
@@ -40,7 +40,7 @@
         <!-- 編集ボタン -->
          <button class="edit_btn" data-id="{{ $post->id }}"
         data-text="{{ $post->post }}">
-          <img src="/images/edit.png" class="images_edit">
+          <img src="/images/edit.png" class="images_edit" alt="編集">
         </button>
 
         <!-- 削除ボタン -->
@@ -48,8 +48,8 @@
           <!-- このformationのURLとルートのURLを合わせる -->
           <button formaction="/post/{{ $post->id }}/delete" formmethod="get">
             <div class="trash_images">
-              <img src="images/trash.png" class="images_trash">
-              <img src="images/trash-h.png" class="images_trash_h">
+              <img src="images/trash.png" class="images_trash" alt="削除">
+              <img src="images/trash-h.png" class="images_trash_h" alt="削除">
             </div>
           </button>
         </form>
@@ -71,7 +71,7 @@
       <input type="hidden" name="id" id="editId">
       <div class="modal_box">
       <textarea name="post" id="editText"></textarea>
-      <button type="submit" class="update_button"><img src="/images/edit.png" class="modal_button"></button>
+      <button type="submit" class="update_button"><img src="/images/edit.png" class="modal_button" alt="更新"></button>
       </div>
     </form>
   </div>

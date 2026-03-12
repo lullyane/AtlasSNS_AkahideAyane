@@ -25,7 +25,7 @@
     <header>
         <div class="head">
             <h1><a href="/top">
-                <img src="{{ asset('images/atlas.png') }}">
+                <img src="{{ asset('images/atlas.png') }}" alt="Atlas">
             </a></h1>
             <div class="head_right">
                 @auth
@@ -52,7 +52,7 @@
                         </ul>
                 </nav>
                 @if(Auth::check())
-                <img src="{{ asset('storage/' . Auth::user()->images) }}" alt="プロフィール画像" class="profile_item profile_icon">
+                <img src="{{ asset('storage/' . Auth::user()->images) }}" alt="ユーザーアイコン" class="profile_item profile_icon">
                  @endif
             </div>
         </div>
