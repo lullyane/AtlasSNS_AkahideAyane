@@ -28,8 +28,9 @@ class HomeController extends Controller
     }
 
     // ログアウト
-    function logout() {
-    removeItem('token'); // ローカルストレージからトークンを削除
-    return redirect('/login'); // ログインページにリダイレクト
-}
+    function logout()
+    {
+        removeItem('token'); // ローカルストレージからトークンを削除
+        return redirect('/login'); // ログインページにリダイレクト
+    }
 }

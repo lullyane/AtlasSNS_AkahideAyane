@@ -11,17 +11,20 @@ use Illuminate\Support\Facades\Auth;
 class FollowsController extends Controller
 {
     //フォローリスト表示
-    public function followList(){
-        return view('follows.follow_list');
+    public function followList()
+    {
+        return view('Follows.follow_list');
     }
 
     // フォロワーリスト表示
-    public function followerList(){
-        return view('follows.follower_list');
+    public function followerList()
+    {
+        return view('Follows.follower_list');
     }
 
     //フォローしているかどうかの状態確認
-    public function checkFollowing($id){
+    public function checkFollowing($id)
+    {
         //自分がフォローしているかどうか検索
         $check = Follow::where('following_id', Auth::id() )->where('followed_id', $id);
 
@@ -36,7 +39,8 @@ class FollowsController extends Controller
 
     //ユーザー検索ページの
     //フォロー
-    public function following(Request $request){
+    public function following(Request $request)
+    {
         //自分がフォローしているかどうか検索
         $check = Follow::where('following_id', Auth::id())->where('followed_id', $request->user_id);
 
@@ -51,16 +55,18 @@ class FollowsController extends Controller
         return redirect('/search');
     }
     //フォローを外す
-    public function unfollow(Request $request){
+    public function unfollow(Request $request)
+    {
         //削除対象のレコードを検索して削除
-        $unfollowing = Follow::where('following_id', Auth::id())->where('followed_id', $request->id)->delete();
+        $un_following = Follow::where('following_id', Auth::id())->where('followed_id', $request->id)->delete();
 
         return redirect('/search');
     }
 
     //ユーザーのプロフィールページの
     //フォロー
-    public function followingFollow(Request $request){
+    public function followingFollow(Request $request)
+    {
         //自分がフォローしているかどうか検索
         $check = Follow::where('following_id', Auth::id())->where('followed_id', $request->user_id);
 
@@ -75,9 +81,10 @@ class FollowsController extends Controller
         return redirect()->back();
     }
     //フォローを外す
-    public function unfollowFollow(Request $request){
+    public function unfollowFollow(Request $request)
+    {
         //削除対象のレコードを検索して削除
-        $unfollowing = Follow::where('following_id', Auth::id())->where('followed_id', $request->id)->delete();
+        $un_following = Follow::where('following_id', Auth::id())->where('followed_id', $request->id)->delete();
 
         return redirect()->back();
     }
