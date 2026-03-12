@@ -51,11 +51,11 @@
             </div>
         </header>
         <main>
-            <section id="row">
-                <div id="container">
+            <div id="row">
+                <section id="container">
                     @yield('content')
-                </div >
-                <div id="sideBar">
+                </section>
+                <section id="sideBar">
                     <div id="confirm">
                         @auth
                         <!-- 「ログイン中のユーザー名表示」 -->
@@ -89,8 +89,8 @@
                     <div class="side_divider">
                         <a class="search_page_button" href="/search" role="button">ユーザー検索</a>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </main>
         <footer></footer>
         <script src="{{ asset('/js/app.js') }}"></script>
