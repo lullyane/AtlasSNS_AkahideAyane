@@ -3,17 +3,17 @@
 @section('content')
 
 <div>
-            <div class="error_area">
-    {{-- Laravelエラー --}}
-    @if ($errors->any())
+    <div class="error_area">
+        {{-- 入力必須メッセージ --}}
+        @if ($errors->any())
         <p class="error has_error">{{ $errors->first() }}</p>
-    @else
+        @else
         <p class="error"></p>
-    @endif
+        @endif
 
-    {{-- JSリアルタイムエラー --}}
-    <p id="countError" class="textarea_error">※投稿内容は150文字以内で入力してください。</p>
-</div>
+        {{-- 150文字以上入力で出てくるメッセージ --}}
+        <p id="countError" class="textarea_error">※投稿内容は150文字以内で入力してください。</p>
+    </div>
     <form action="/top" method="post" class="post_form">
 
         <div class="form_box">
