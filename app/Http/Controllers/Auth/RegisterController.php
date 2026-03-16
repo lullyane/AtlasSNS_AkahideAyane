@@ -55,18 +55,18 @@ class RegisterController extends Controller
                         'password' => 'required|alpha_num|between:8,20|confirmed'
                         ],
                     [
-                        'username.required' => 'ユーザー名は必須です。',
-                        'username.between' => 'ユーザー名は2文字以上12文字以内で入力してください。',
+                        'username.required' => '・ユーザー名は必須です。',
+                        'username.between' => '・ユーザー名は2文字以上12文字以内で入力してください。',
 
-                        'mail.required' => 'メールアドレスは必須です。',
-                        'mail.email' => 'メールアドレスの形式が正しくありません。',
-                        'mail.between' => 'メールアドレスは5文字以上40文字以内で入力してください。',
-                        'mail.unique' => 'このメールアドレスは既に登録されています。',
+                        'mail.required' => '・メールアドレスは必須です。',
+                        'mail.email' => '・メールアドレスの形式が正しくありません。',
+                        'mail.between' => '・メールアドレスは5文字以上40文字以内で入力してください。',
+                        'mail.unique' => '・このメールアドレスは既に登録されています。',
 
-                        'password.required' => 'パスワードは必須です。',
-                        'password.alpha_num' => 'パスワードは英数字のみ使用できます。',
-                        'password.between' => 'パスワードは8文字以上20文字以内で入力してください。',
-                        'password.confirmed' => 'パスワード確認が一致していません。',
+                        'password.required' => '・パスワードは必須です。',
+                        'password.alpha_num' => '・パスワードは英数字のみ使用できます。',
+                        'password.between' => '・パスワードは8文字以上20文字以内で入力してください。',
+                        'password.confirmed' => '・パスワード確認が一致していません。',
                         ]);
 
                 $username = $request->input('username');
