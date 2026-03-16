@@ -47,7 +47,7 @@ class LoginController extends Controller
     // ログイン処理
     public function login(Request $request)
     {
-        if($request->isMethod('post'))
+        if($request->isMethod('post')){
             {
                 $data=$request->only('mail','password');
                  // ログインが成功したら、トップページへ
@@ -58,6 +58,9 @@ class LoginController extends Controller
                 }
             }
 
+        return back()->withErrors([
+            'login' => 'メールアドレスまたはパスワードが違います。',]);
+        }
         return view("Auth.login");
     }
 
