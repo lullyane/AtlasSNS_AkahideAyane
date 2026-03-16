@@ -6,7 +6,13 @@
     <p>フォローリスト</p>
     <div class="follow_img">
         @foreach ($users as $user)
-        <a href="/profile/{{ $user->id }}"><img class="form_icon" src="{{ asset('storage/' . $user->images) }}" alt="ユーザーアイコン"></a>
+        <a href="/profile/{{ $user->id }}">
+            <img class="form_icon"
+            src="{{ $user->images
+            ? asset('storage/' . $user->images)
+            : asset('images/icon1.png') }}"
+            alt="ユーザーアイコン">
+        </a>
         @endforeach
     </div>
 </div>
