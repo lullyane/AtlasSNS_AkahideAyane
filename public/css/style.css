@@ -117,30 +117,32 @@ h1 img {
     /* そのため、top right で配置場所を決める必要がある */
     top: 75px;
     right: 0px;
-    width: 22%;
+    width: 255px;
+    height: 265px;
     background: #fff;
     border: 3px solid #186AC9;
     z-index: 2000;
-    height: 32.5vh;
 }
 
 /* 各項目のデザイン */
 .menu_nav ul {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .menu_nav ul li {
-    text-align: center;
+    flex: 1;
 }
 
 .menu_nav ul a {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
     font-size: 18px;
     color: #969696;
-    padding-top: 20px;
-    padding-bottom: 20px;
-
 }
 
 /* 項目にカーソル置いた時に色変える */
