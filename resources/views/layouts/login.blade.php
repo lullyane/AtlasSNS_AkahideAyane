@@ -61,38 +61,34 @@
                     @yield('content')
                 </section>
                 <section id="sideBar">
-                    <div id="confirm">
-                        @auth
-                        <!-- 「ログイン中のユーザー名表示」 -->
-                        <p class="side_space">{{ Auth::user()->username }}さんの</p>
-                        @endauth
-                        <div class="side_follow">
-                            <div class="side_block">
-                                <p class="side_item side_space">フォロー数</p>
-                                @auth
-                                <!-- ログイン中のユーザーが Follow テーブルに持ってるfollowingsの件数表示 -->
-                                <p class="side_item side_space">{{ Auth::user()->followings()->count() }}
-人</p>
-                                @endauth
-                            </div>
-                            <div class="side_space">
-                                <a class="follow_button" href="/follow-list" role="button">フォローリスト</a>
-                            </div>
-                            <div class="side_block">
-                                <p class="side_item side_space">フォロワー数</p>
-                                @auth
-                                <!-- ログイン中のユーザーが Follow テーブルに持ってるfollowersの件数表示 -->
-                                <p class="side_item side_space">{{ Auth::user()->followers()->count() }}
-人</p>
-                                @endauth
-                            </div>
+                    <div class="side_top">
+                         @auth
+                        <div>
+                            <!-- 「ログイン中のユーザー名表示」 -->
+                            <p>{{ Auth::user()->username }}さんの</p>
                         </div>
-                        <div class="side_space">
+                        <div class="follow_count_wrapper">
+                            <p class="follow_count">フォロー数</p>
+                            <!-- ログイン中のユーザーが Follow テーブルに持ってるfollowingsの件数表示 -->
+                            <p>{{ Auth::user()->followings()->count() }}
+人</p>
+                        </div>
+                        <div>
+                            <a class="follow_button" href="/follow-list" role="button">フォローリスト</a>
+                        </div>
+                        <div class="follow_count_wrapper">
+                            <p class="follow_count">フォロワー数</p>
+                            <!-- ログイン中のユーザーが Follow テーブルに持ってるfollowersの件数表示 -->
+                            <p>{{ Auth::user()->followers()->count() }}
+人</p>
+                        </div>
+                        @endauth
+                        <div>
                             <a class="follow_button" href="/follower-list" role="button">フォロワーリスト</a>
                         </div>
                     </div>
-                    <div class="side_divider">
-                        <a class="search_page_button" href="/search" role="button">ユーザー検索</a>
+                    <div class="side_bottom">
+                        <a class="follow_button" href="/search" role="button">ユーザー検索</a>
                     </div>
                 </section>
             </div>

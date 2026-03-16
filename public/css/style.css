@@ -164,66 +164,61 @@ h1 img {
 /* サイドバー */
 /* ================================ */
 #sideBar {
-    flex: 0 0 19%;
-    border-left: 2px solid #727272;
-    height: auto;
+    flex: 0 0 20%;
+    font-size: 13px;
 }
 
-/* フォロー数/フォロワー数の位置固定 */
-.side_follow {
-    display: grid;
-    font-size: 14px;
+/* フォロー/フォロワー数のブロック */
+.side_top {
+    margin: 20px 0 40px 20px;
 }
 
-.side_block {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-}
-
-/* 行間 */
-.side_space {
-    margin: 20px 0 0 15px;
-}
-
-.follow_button {
-    color: #fff;
-    /* weight size family  */
-    font: 300 12px sans-serif;
-    background-color: #186AC9;
-    border: none;
-    border-radius: 5px;
-    width: 120px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 125px;
-}
-
-.side_divider {
+/* 検索ボタンのブロック */
+.side_bottom {
     border-top: 1px solid #727272;
-    margin: 40px 0 30px 0;
 }
 
-.search_page_button {
-    color: #fff;
-    font: 300 15px sans-serif;
+/*「フォロー/フォロワー数 ○○人」横並び */
+/*「フォロー/フォロワー数」の幅設定 */
+.follow_count_wrapper {
+    display: flex;
+}
+
+.follow_count {
+    width: 100px;
+}
+
+/* フォローリスト/フォロワーリストボタン */
+.follow_button {
     background-color: #0656CF;
     border: none;
     border-radius: 5px;
-    width: 120px;
+    width: 130px;
     height: 40px;
+    margin: 0 0 16px 80px;
+
+    color: #fff;
+    font: normal 12px sans-serif;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px auto 0 auto;
+}
+
+.side_bottom .follow_button {
+    margin: 20px auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ================================ */
 /* メインコンテンツ */
 /* ================================ */
 #container {
-    flex: 0 0 78%;
+    flex: 0 0 80%;
+    border-right: 2px solid #727272;
 }
 
 /* ================================ */
