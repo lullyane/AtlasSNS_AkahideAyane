@@ -45,15 +45,29 @@ class RegisterController extends Controller
         if($request->isMethod('post'))
             {
                 // バリデーションチェック
-                $request->validate([
-                // 入力必須、2文字以上,12文字以内
-                'username' => 'required|between:2,12',
-                // 入力必須、5文字以上40文字以内、登録済みメールアドレス使用不可、メールアドレスの形式
-                'mail' => 'required|between:5,40|unique:users,mail|email',
-                //入力必須、英数字のみ、8文字以上20文字以内
-                'password' => 'required|alpha_num|between:8,20',
-                // Password入力欄と一致しているか
-                'PasswordConfirm' => 'same:password',]);
+                $request->validate(
+                    [
+                        // 入力必須、2文字以上,12文字以内
+                        'username' => 'required|between:2,12',
+                        // 入力必須、5文字以上40文字以内、登録済みメールアドレス使用不可、メールアドレスの形式
+                        'mail' => 'required|between:5,40|unique:users,mail|email',
+                        //入力必須、英数字のみ、8文字以上20文字以内
+                        'password' => 'required|alpha_num|between:8,20|confirmed'
+                        ],
+                    [
+                        'username.required' => 'ユーザー名は必須です。',
+                        'username.between' => 'ユーザー名は2文字以上12文字以内で入力してください。',
+
+                        'mail.required' => 'メールアドレスは必須です。',
+                        'mail.email' => 'メールアドレスの形式が正しくありません。',
+                        'mail.between' => 'メールアドレスは5文字以上40文字以内で入力してください。',
+                        'mail.unique' => 'このメールアドレスは既に登録されています。',
+
+                        'password.required' => 'パスワードは必須です。',
+                        'password.alpha_num' => 'パスワードは英数字のみ使用できます。',
+                        'password.between' => 'パスワードは8文字以上20文字以内で入力してください。',
+                        'password.confirmed' => 'パスワード確認が一致していません。',
+                        ]);
 
                 $username = $request->input('username');
                 $mail = $request->input('mail');
