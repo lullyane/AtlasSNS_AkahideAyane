@@ -232,7 +232,7 @@ h1 img {
 .post_form {
     /* width設定しないと横幅いっぱいになっちゃう */
     width: auto;
-    padding: 25px 0 25px 85px;
+    padding: 15px 0 25px 85px;
     border-bottom: 6px solid #E0E0E0;
 }
 
@@ -250,7 +250,7 @@ h1 img {
 
 .post_form textarea {
     width: 600px;
-    height: 100px;
+    height: 75px;
     border: none;
     outline: none;
     resize: none;
@@ -260,7 +260,7 @@ h1 img {
 .post {
     width: 40px;
     height: 40px;
-    margin-top: 40px;
+    margin-top: 37px;
 }
 
 .form textarea::placeholder {
@@ -271,6 +271,28 @@ button {
     border: none;
     background-color: #fff;
     line-height: 0;
+}
+
+/* エラーメッセージの見た目 */
+/* テキストエリアがエラーメッセージ分下がらないようスペースを確保しておく */
+.error_area {
+    position: relative;
+    margin: 10px 0 0 145px;
+    height: 10px;
+    text-align: center;
+}
+
+.textarea_error,
+.error {
+    visibility: hidden;
+    font-size: 10px;
+    color: #ED3833;
+    position: absolute;
+}
+
+.textarea_error.active,
+.error.has_error {
+    visibility: visible;
 }
 
 /* ================================ */

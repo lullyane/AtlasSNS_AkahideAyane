@@ -3,9 +3,21 @@
 @section('content')
 
 <div>
+            <div class="error_area">
+    {{-- Laravelエラー --}}
+    @if ($errors->any())
+        <p class="error has_error">{{ $errors->first() }}</p>
+    @else
+        <p class="error"></p>
+    @endif
+
+    {{-- JSリアルタイムエラー --}}
+    <p id="countError" class="textarea_error">※投稿内容は150文字以内で入力してください。</p>
+</div>
     <form action="/top" method="post" class="post_form">
+
         <div class="form_box">
-            <div class="form_img">
+            <div>
                 @if(Auth::check())
                 <img src="{{ asset('storage/' . Auth::user()->images) }}" alt="ユーザーアイコン" class="form_icon">
                 @endif

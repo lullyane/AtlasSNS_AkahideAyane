@@ -72,6 +72,36 @@ overlay.addEventListener('click', (e) => {
 });
 
 // 2. モーダル本体をクリックした時は閉じないようにする
-modalContent.addEventListener('click', (e) => {
-  e.stopPropagation();
+if (modalContent) {
+  modalContent.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+}
+
+// --------------------
+// 投稿内容が151文字以上になったら、非表示のエラーメッセージを表示する
+// --------------------
+document.addEventListener('DOMContentLoaded', () => {
+  const textarea = document.querySelector('textarea[name="post"]');
+  const errorMsg = document.getElementById('countError');
+  const requiredError = document.querySelector('.error');
+
+  if (!textarea || !errorMsg) return;
+
+  textarea.addEventListener('input', () => {
+    const len = textarea.value.length;
+
+    // 1〜150文字 → 入力必須メッセージ非表示
+    if (len >= 1 && len <= 150) {
+      if (requiredError) requiredError.classList.remove('has_error');
+    }
+
+    // 151文字以上 → 150文字以内での入力メッセージ表示
+    if (len > 150) {
+      errorMsg.classList.add('active');
+      if (requiredError) requiredError.classList.remove('has_error');
+    } else {
+      errorMsg.classList.remove('active');
+    }
+  });
 });

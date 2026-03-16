@@ -38,8 +38,14 @@ class PostsController extends Controller
     public function form(Request $request)
     {
         // 入力必須、1文字以上,150文字以内のバリデーション
-        $request->validate([
-            'post' => 'required|between:1,150',]);
+        $request->validate(
+            [
+                'post' => 'required|between:1,150',
+                ],
+            [
+                'post.required' => '※投稿内容は入力必須です。',
+                'post.between' => '※投稿内容は150文字以内で入力してください。',
+            ]);
 
         // Postモデルを使って投稿を保存
         Post::create([
