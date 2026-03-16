@@ -51,14 +51,9 @@ h1 img {
 .profile_icon {
     width: 55px;
     /* 縦横比固定(幅を親要素に合わせる) */
-    height: auto;
-    /* 要素内に画像を収める */
+    height: 55px;
+    border-radius: 50%;
     object-fit: contain;
-}
-
-/* ヘッダー右側のアイコンのspanのタグ */
-.img_wrap {
-    margin-top: 12px;
 }
 
 /* ----------------- */
@@ -250,6 +245,7 @@ h1 img {
 .form_icon {
     width: 40px;
     height: 40px;
+    border-radius: 50%;
 }
 
 .post_form textarea {
@@ -597,6 +593,7 @@ button.follow {
     display: inline-block;
     /* その際、下に余白10pxつくる */
     margin-bottom: 10px;
+    border-radius: 50%;
 }
 
 /* ================================ */
