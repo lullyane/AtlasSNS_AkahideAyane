@@ -31,11 +31,8 @@ h1 img {
 }
 
 .h1_font {
-    font-family: "Noto Sans JP", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-    color: #ffffff;
-    font-size: 30px;
+    font: 500 27px sans-serif;
+    color: #fff;
 }
 
 .form_wrapper {
@@ -48,8 +45,7 @@ h1 img {
 }
 
 .form_font {
-    font-weight: 300;
-    font-size: 11px;
+    font: 300 11px sans-serif;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -71,21 +67,15 @@ input[type="submit"] {
     padding-left: 10px;
 }
 
-.form_register {
+.form_register,
+.form_login {
     font-size: 14px;
     margin: 0 auto 10px auto;
     text-align: center;
 }
 
-.form_login {
-    font-size: 14px;
-    margin: 0 auto 20px auto;
-    text-align: center;
-}
-
 .form_link {
-    font-weight: 300;
-    font-size: 12px;
+    font: 300 12px sans-serif;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -93,6 +83,7 @@ input[type="submit"] {
     height: auto;
     margin: 10px auto 0 auto;
     text-align: center;
+    text-decoration: underline;
 }
 
 button,
@@ -109,8 +100,7 @@ input[type="submit"] {
 }
 
 .added_Bold {
-    font-weight: bold;
-    font-size: 12px;
+    font: bold 12px sans-serif;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -121,8 +111,7 @@ input[type="submit"] {
 }
 
 .added_text {
-    font-weight: 300;
-    font-size: 12px;
+    font: 300 12px sans-serif;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -134,8 +123,7 @@ input[type="submit"] {
 
 .added_button {
     color: #fff;
-    font-weight: 300;
-    font-size: 12px;
+    font: 300 12px sans-serif;
     background-color: #ED3A50;
     border: none;
     border-radius: 5px;
