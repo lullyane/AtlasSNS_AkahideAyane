@@ -101,6 +101,6 @@ class UsersController extends Controller
 
         $user->save();
 
-        return redirect('/profile');
+        return redirect('/top');
     }
 }
