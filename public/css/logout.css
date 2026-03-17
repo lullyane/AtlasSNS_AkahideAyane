@@ -99,26 +99,23 @@ input[type="submit"] {
     text-align: center;
 }
 
-.added_Bold {
-    font: bold 12px sans-serif;
+.added_Bold,
+.added_text {
     color: #fff;
     display: flex;
     flex-direction: column;
     width: 200px;
     height: auto;
-    margin: 10px auto 40px auto;
     text-align: center;
+    margin: 10px auto 40px auto;
+}
+
+.added_Bold {
+    font: bold 12px sans-serif;
 }
 
 .added_text {
     font: 300 12px sans-serif;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    height: auto;
-    margin: 0 auto 30px auto;
-    text-align: center;
 }
 
 .added_button {
