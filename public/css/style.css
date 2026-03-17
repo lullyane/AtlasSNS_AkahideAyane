@@ -529,9 +529,16 @@ button.follow {
 /* ================================ */
 /* プロフィール編集ページ */
 /* ================================ */
+/* edit_profileを中央揃えにする */
+.edit_profile_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .edit_profile {
     display: flex;
-    margin: 50px 0 0 200px;
     gap: 30px;
 }
 
