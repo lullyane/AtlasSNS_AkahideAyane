@@ -31,6 +31,9 @@ class UsersController extends Controller
             $query->where('username', 'like', '%'.$search.'%');
         }
 
+        // ログインユーザーは除外
+        $query -> where('id','!=',Auth::user()->id);
+
         // 結果を取得して
         $data = $query->get();
 
