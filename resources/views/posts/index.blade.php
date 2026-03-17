@@ -36,8 +36,14 @@
 <div class="list">
     <div class="list_box">
         <div>
-            <!-- 投稿者のアイコン -->
-            <img class="form_icon" src="{{ $post->user->images }}" alt="ユーザーアイコン">
+            <!-- 投稿者のアイコン（プロフィールリンク設定） -->
+            <a href="/profile/{{ $post->user->id }}">
+                <img class="form_icon"
+                src="{{ $post->user->images
+                ? asset('storage/' . $post->user->images)
+                : asset('images/icon1.png') }}"
+                alt="ユーザーアイコン">
+            </a>
         </div>
         <div class="contents_box">
             <!-- 投稿ユーザー名 -->
