@@ -476,10 +476,9 @@ button {
 /* ------------------- */
 .search_results {
     display: flex;
-    align-items: center;
+    justify-content: center;
     gap: 30px;
-    margin: 30px 0;
-    padding-left: 250px;
+    margin: 30px auto;
 }
 
 /* ------------------- */
