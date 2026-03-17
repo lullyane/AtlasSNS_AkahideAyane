@@ -549,12 +549,17 @@ button.follow {
 .edit_profile textarea,
 .file_wrapper {
     width: 350px;
+    height: 30px;
     background-color: #EFEFEF;
+
     /* これがないと初期値入ったときに色変わっちゃう */
     box-shadow: 0 0 0px 1000px #EFEFEF inset;
     border: 1px solid #909090;
     padding: 0 0 5px 10px;
+
+    /* テキストエリアのサイズ変更ボタンとスクロールバー消すやつ */
     resize: none;
+    scrollbar-width: none;
 }
 
 /* ユーザーアイコン画像フォーム */
@@ -580,7 +585,7 @@ button.follow {
 
 /* 更新ボタン */
 .profile_item button {
-    margin-left: 120px;
+    margin: 0 0 20px 120px;
 
     width: 140px;
     border-radius: 5px;
@@ -588,6 +593,13 @@ button.follow {
     font-size: 300 14px;
     color: #fff;
     background-color: #ED3A50;
+}
+
+/* バリデーション エラーメッセージ */
+.profile_error {
+    margin: 0;
+    font-size: 15px;
+    color: #ED3833;
 }
 
 /* ================================ */

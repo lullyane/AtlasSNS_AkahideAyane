@@ -51,13 +51,33 @@ class UsersController extends Controller
     {
         $user = Auth::user();
 
-        $validated = $request->validate([
-            'username' => 'required|between:2,12',
-            'mail' => 'required|between:5,40|unique:users,mail,' . $user->id . '|email',
-            // パスワード確認は自動で参照される
-            'password' => 'required|nullable|alpha_num|between:8,20|confirmed',
-            'bio' => 'nullable|max:150',
-            'images' => 'nullable|image']);
+        $validated = $request->validate(
+            [
+                'username' => 'required|between:2,12',
+                'mail' => 'required|between:5,40|unique:users,mail,' . $user->id . '|email',
+                'password' => 'required|alpha_num|between:8,20|confirmed',
+                'bio' => 'nullable|max:150',
+                'images' => 'nullable|image'
+                ],
+            [
+                'username.required' => '・ユーザー名は入力必須です。',
+                'username.between' => '・ユーザー名は2文字以上12文字以内で入力してください。',
+
+                'mail.required' => '・メールアドレスは入力必須です。',
+                'mail.between' => '・メールアドレスは5文字以上40文字以内で入力してください。',
+                'mail.unique' => '・このメールアドレスは既に登録されています。',
+                'mail.email' => '・メールアドレスの形式が正しくありません。',
+
+                'password.required' => '・パスワードは入力必須です。',
+                'password.alpha_num' => '・パスワードは英数字のみ使用できます。',
+                'password.between' => '・パスワードは8文字以上20文字以内で入力してください。',
+                'password.confirmed' => '・パスワード確認が一致していません。',
+
+                'bio.max' => '・自己紹介は150文字以内で入力してください。',
+
+                'images.image' => '・アイコン画像には画像ファイルをアップロードしてください。',
+
+            ]);
 
         // 名前、アドレス、自己紹介
         $user->username = $validated['username'];
