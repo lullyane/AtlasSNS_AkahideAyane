@@ -16,11 +16,11 @@
             @endforeach
     </div>
     @endif
-    <div class="form_font form_input">
+    <div class="form_font">
         {{ Form::label('mail','メールアドレス') }}
         {{ Form::text('mail',null,['class' => 'input']) }}
     </div>
-    <div class="form_font form_input">
+    <div class="form_font">
         {{ Form::label('password','パスワード') }}
         {{ Form::password('password',['class' => 'input']) }}
     </div>
