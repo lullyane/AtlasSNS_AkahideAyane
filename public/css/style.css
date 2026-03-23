@@ -280,7 +280,7 @@ button {
 /* テキストエリアがエラーメッセージ分下がらないようスペースを確保しておく */
 .error_area {
     position: relative;
-    margin: 10px 0 0 145px;
+    margin: 10px 0 0 10px;
     height: 10px;
     text-align: center;
 }
@@ -412,18 +412,21 @@ button {
     background: rgba(0, 0, 0, 0.5);
     /* 他の要素よりも前に来させる */
     z-index: 9999;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal_wrap {
     background: #fff;
-    width: 50%;
-    height: auto;
-    /* モーダルの位置 */
-    margin: 100px auto;
+    width: 60%;
+    height: 50%;
     /* モーダルの中の余白 */
-    padding: 20px 30px;
+    padding: 0 30px 20px 30px;
     border-radius: 10px;
-    position: relative;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .modal_text {
@@ -434,7 +437,7 @@ button {
 .update_button_wrap {
     display: block;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 .modal_button {
@@ -444,6 +447,7 @@ button {
 .update_button img {
     width: 30px;
     height: auto;
+    pointer-events: none;
 }
 
 /* テキストエリアの高さ自動調整 */
@@ -451,7 +455,18 @@ button {
     /* 文字が白く表示されているものの適用されているのでそのまま利用 */
     field-sizing: content;
     resize: none;
-    padding: 20px;
+    padding: 10px;
+    min-height: 200px;
+    overflow-wrap: break-word;
+}
+
+/* モーダルのエラーメッセージ */
+.modal_error_area p {
+    display: inline-block;
+    font: normal 12px sans-serif;
+    color: #ED3833;
+    margin: 0;
+    padding: 0;
 }
 
 /* ================================ */

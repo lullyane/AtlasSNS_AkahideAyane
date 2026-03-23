@@ -63,7 +63,8 @@
                 @if (Auth::check() && Auth::user()->id === $post->user_id)
                 <!-- 編集ボタン -->
                 <div>
-                    <button class="images_edit" data-id="{{ $post->id }}" data-text="{{ $post->post }}"><img src="/images/edit.png" alt="編集"></button>
+                    <!-- この edit_btn はJSで使ってるので、CSSにはないけど消さない -->
+                    <button class="images_edit edit_btn" data-id="{{ $post->id }}" data-text="{{ $post->post }}"><img src="/images/edit.png" alt="編集"></button>
                 </div>
                 <!-- 削除ボタン -->
                 <div>
@@ -87,14 +88,24 @@
 <!-- 編集モーダル -->
 <div id="editModal" class="modal">
     <div class="modal_wrap">
+        <!-- エラーメッセージ -->
+        <div class="modal_error_area">
+            <!-- 未入力の場合に出るエラーメッセージ (JS参照) -->
+            <p class="modal_required_error"></p>
+            <!-- 150文字以上入力で出るエラーメッセージ (JS参照) -->
+            <p id="modalCountError" class="modal_textarea_error"></p>
+        </div>
         <form action="/post/update" method="post">
             @csrf
             <input type="hidden" name="id" id="editId">
+            <!-- モーダルのテキストエリア -->
             <div class="modal_text">
                 <textarea name="post" id="editText"></textarea>
             </div>
+            <!-- モーダルの更新ボタン -->
             <div class="update_button_wrap">
-                <button type="submit" class="update_button"><img src="/images/edit.png" alt="更新"></button>
+                <!-- この edit_btn はJSで使ってるので、CSSにはないけど消さない -->
+                <button type="submit" class="update_button" id="modalUpdateBtn"><img src="/images/edit.png" alt="更新"></button>
             </div>
         </form>
     </div>

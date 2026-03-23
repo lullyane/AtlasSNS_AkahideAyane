@@ -69,12 +69,14 @@ class PostsController extends Controller
     // 投稿更新
     public function update(Request $request)
     {
-        $post = Post::find($request->id);
-
-        if (!$post)
-            {
-            return redirect('/top')->with('error', '投稿が見つかりませんでした');
-            }
+        $request->validate(
+            [
+                'post' => 'required|between:1,150',
+                ],
+            [
+                'post.required' => '※投稿内容は1文字以上である必要があるため、更新されませんでした。',
+                'post.between' => '※投稿内容は150文字以内である必要があるため、更新されませんでした。',
+            ]);
 
         $post->post = $request->post;
         $post->save();
