@@ -22,7 +22,9 @@
 <div class="search_results">
     <div class="user_row">
         <div class="user_icon">
-            <a href="/profile/{{ $user->id }}"><img src="{{ asset('storage/' . $user->images) }}"></a>
+            <a href="/profile/{{ $user->id }}">
+                <img src="{{ $user->profile_image_url }}">
+            </a>
         </div>
         <div class="user_name">
             {{{ $user->username }}}

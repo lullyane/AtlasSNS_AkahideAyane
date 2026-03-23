@@ -43,14 +43,9 @@
                         </ul>
                     </nav>
                     <div class="img_wrap">
-                        @if(Auth::check())
-                        <img
-                        src="{{ Auth::user()->images
-                        ? asset('storage/' . Auth::user()->images)
-                        : asset('images/icon1.png') }}"
+                        <img src="{{ Auth::user()->profile_image_url }}"
                         alt="ユーザーアイコン"
                         class="profile_item profile_icon">
-                        @endif
                     </div>
                 </div>
             </div>

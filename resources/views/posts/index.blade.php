@@ -4,23 +4,24 @@
 
 <div>
     <div class="error_area">
-        {{-- 入力必須メッセージ --}}
+        {{-- 未入力の場合に出るエラーメッセージ --}}
         @if ($errors->any())
         <p class="error has_error">{{ $errors->first() }}</p>
         @else
         <p class="error"></p>
         @endif
 
-        {{-- 150文字以上入力で出てくるメッセージ --}}
+        {{-- 150文字以上入力で出るエラーメッセージ --}}
         <p id="countError" class="textarea_error">※投稿内容は150文字以内で入力してください。</p>
     </div>
     <form action="/top" method="post" class="post_form">
 
         <div class="form_box">
             <div>
-                @if(Auth::check())
-                <img src="{{ asset('storage/' . Auth::user()->images) }}" alt="ユーザーアイコン" class="form_icon">
-                @endif
+                <img
+                src="{{ Auth::user()->profile_image_url }}"
+                alt="ユーザーアイコン"
+                class="profile_item profile_icon">
             </div>
             <!-- CSRF攻撃対策 -->
             @csrf

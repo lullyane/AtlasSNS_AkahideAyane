@@ -13,9 +13,9 @@
     <!-- 子要素の横並びと間隔調整 -->
     <div class="edit_profile">
         <div class="user_icon">
-            @if(Auth::check())
-            <img src="{{ asset('storage/' . Auth::user()->images) }}" alt="プロフィール画像">
-            @endif
+            <img
+            src="{{ Auth::user()->profile_image_url }}"
+            alt="ユーザーアイコン">
         </div>
         {!! Form::open(['url' => '/profile','method' => 'PUT', 'files' => true]) !!}
         @csrf

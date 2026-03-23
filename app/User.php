@@ -20,17 +20,16 @@ class User extends Authenticatable
 
 
     // ユーザーのアイコン未登録時は icon1.png が表示されるようにする
-    protected static function boot()
+    public function getProfileImageUrlAttribute()
     {
-        parent::boot();
+        // 画像が設定されていて、かつファイルが存在する場合
+        if ($this->images && \Storage::disk('public')->exists($this->images))
+            {
+                return asset('storage/' . $this->images);
+            }
 
-        static::creating(function ($user)
-        {
-            if (empty($user->images))
-                {
-                    $user->images = 'images/icon1.png';
-                }
-        });
+        // それ以外はデフォルト画像
+        return asset('images/icon1.png');
     }
 
     /**
