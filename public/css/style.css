@@ -235,6 +235,13 @@ h1 img {
 .form_box {
     display: flex;
     gap: 10px;
+    position: relative;
+}
+
+.posts_icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
 }
 
 /* 一覧のアイコンとフォームのサイズ */
@@ -245,18 +252,18 @@ h1 img {
 }
 
 .post_form textarea {
-    width: 600px;
+    width: 700px;
     height: 75px;
     border: none;
     outline: none;
     resize: none;
-    padding: 0 10px;
+    padding: 5px 10px 5px 50px;
 }
 
 .post {
     width: 40px;
     height: 40px;
-    margin-top: 37px;
+    margin-top: 35px;
 }
 
 .form textarea::placeholder {

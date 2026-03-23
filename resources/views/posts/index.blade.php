@@ -15,13 +15,12 @@
         <p id="countError" class="textarea_error">※投稿内容は150文字以内で入力してください。</p>
     </div>
     <form action="/top" method="post" class="post_form">
-
         <div class="form_box">
             <div>
                 <img
                 src="{{ Auth::user()->profile_image_url }}"
                 alt="ユーザーアイコン"
-                class="profile_item profile_icon">
+                class="posts_icon">
             </div>
             <!-- CSRF攻撃対策 -->
             @csrf
