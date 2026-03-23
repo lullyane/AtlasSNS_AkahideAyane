@@ -55,17 +55,20 @@
         </div>
         <div class="others_box">
             <!-- 投稿日時（秒非表示） -->
-            <p class="created_at">{{ $post->created_at->format('Y-m-d H:i') }}</p>
+            <div>
+                <p class="created_at">{{ $post->created_at->format('Y-m-d H:i') }}</p>
+            </div>
             <!-- ボタン2種の箱 -->
             <div class="list_button">
                 <!-- ifの役割：ログインIDと投稿者のIDが一致している投稿については、以下のボタンを表示する -->
                 @if (Auth::check() && Auth::user()->id === $post->user_id)
                 <!-- 編集ボタン -->
                 <div>
-                    <button class="edit_btn" data-id="{{ $post->id }}" data-text="{{ $post->post }}"><img src="/images/edit.png" class="images_edit" alt="編集"></button>
+                    <button class="images_edit" data-id="{{ $post->id }}" data-text="{{ $post->post }}"><img src="/images/edit.png" alt="編集"></button>
                 </div>
                 <!-- 削除ボタン -->
-                <form onsubmit="return confirm('本当に削除しますか？');">
+                <div>
+                    <form onsubmit="return confirm('本当に削除しますか？');" class="delete_message">
                     <!-- このformationのURLとルートのURLを合わせる -->
                     <button formaction="/post/{{ $post->id }}/delete" formmethod="get">
                         <div class="trash_images">
@@ -73,7 +76,8 @@
                             <img src="images/trash-h.png" class="images_trash_h" alt="削除">
                         </div>
                     </button>
-                </form>
+                    </form>
+                </div>
                 @endif
             </div>
         </div>

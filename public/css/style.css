@@ -300,22 +300,22 @@ button {
     flex-direction: column;
     padding: 15px 0 15px 125px;
     border-bottom: 2px solid #E0E0E0;
+    font-size: 12px;
 }
 
 /* 一つ一つの投稿の要素の配置 */
 .list_box {
     display: flex;
-    gap: 20px;
-    font-size: 12px;
+    align-items: stretch;
 }
 
 /* -------------------- */
 /* ユーザー名と投稿内容のサイズや行間 */
 /* -------------------- */
 .contents_box {
-    width: 650px;
+    max-width: 500px;
     height: auto;
-    margin-right: 30px;
+    margin-left: 20px;
 }
 
 .contents_username {
@@ -325,6 +325,8 @@ button {
 /* 投稿内容に改行が適用されるように設定する機能 */
 .contents_post {
     white-space: pre-wrap;
+    overflow-wrap: break-word;
+    margin: 0;
 }
 
 /* -------------------- */
@@ -332,29 +334,37 @@ button {
 /* -------------------- */
 .images_edit,
 .images_trash,
-.images_trash_h,
+.images_trash_h {
+    width: 30px;
+    height: 30px;
+}
+
 .modal_button,
-.trash_images {
+.delete_message {
     width: 25px;
     height: 25px;
 }
 
 /* 配置 */
 .others_box {
-    position: relative;
-    padding-bottom: 15px;
-    min-height: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 20px 0 auto;
+    box-sizing: border-box;
 }
 
 .list_button {
-    position: absolute;
     display: flex;
-    bottom: 0px;
+    margin-top: auto;
+    gap: 15px;
 }
 
-.images_edit {
-    margin-left: 20px;
-    margin-right: 10px;
+.list_button button {
+    display: flex;
+    padding: 0;
+    border: none;
+    background: none;
 }
 
 /* 投稿削除ボタンのホバー時切り替え */
@@ -365,8 +375,7 @@ button {
 .images_trash,
 .images_trash_h {
     position: absolute;
-    top: 0;
-    left: 0;
+
 }
 
 .images_trash_h {
