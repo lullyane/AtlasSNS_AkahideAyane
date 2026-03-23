@@ -95,8 +95,7 @@ input[type="submit"] {
     border-radius: 5px;
     width: 100px;
     height: 30px;
-    margin: 0 auto 20px;
-    text-align: center;
+    margin: 0 0 20px auto;
 }
 
 .added_Bold,
