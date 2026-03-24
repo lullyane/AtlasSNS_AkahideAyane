@@ -55,7 +55,7 @@
         <div class="others_box">
             <!-- 投稿日時（秒非表示） -->
             <div>
-                <p class="created_at">{{ $post->created_at->format('Y-m-d H:i') }}</p>
+                <p>{{ $post->created_at->format('Y-m-d H:i') }}</p>
             </div>
             <!-- ボタン2種の箱 -->
             <div class="list_button">
