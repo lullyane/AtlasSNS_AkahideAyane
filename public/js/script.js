@@ -137,3 +137,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+// --------------------
+// メニューナビ（トリガーメニュー）の幅をサイドバーと同じにする
+// --------------------
+const sidebar = document.getElementById('sideBar');
+const menu = document.querySelector('.menu_nav');
+menu.style.width = sidebar.offsetWidth + 'px';

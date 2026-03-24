@@ -112,17 +112,23 @@ h1 img {
 }
 
 .menu_nav.active {
+    /* noneになってるからblockにして表示させる */
     display: block;
     /* fixed：通常の流れから外れて、画面上のどこかに固定される */
     position: fixed;
     /* そのため、top right で配置場所を決める必要がある */
     top: 75px;
     right: 0px;
-    width: 255px;
+
+    /* JSにて幅を設定しているが、メニューナビは"ボーダーも含めて"サイドバーと同じ幅にしたい。そのためborder-boxを指定する。 */
+    box-sizing: border-box;
+
+    /* 前面に出すために設置してる。適用しなくても前面に出てくるけど念のため */
+    z-index: 2000;
+
     height: 265px;
     background: #fff;
-    border: 3px solid #186AC9;
-    z-index: 2000;
+    border: 2px solid #00297E;
 }
 
 /* 各項目のデザイン */
