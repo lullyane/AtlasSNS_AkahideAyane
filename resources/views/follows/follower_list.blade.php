@@ -21,7 +21,7 @@
         <div>
             <a href="/profile/{{ $post->user->id }}">
             <!-- 投稿者のアイコン -->
-            <img class="form_icon" src="{{ $post->user->images }}" alt="ユーザーアイコン">
+            <img class="form_icon" src="{{ $post->user->profile_image_url }}" alt="ユーザーアイコン">
             </a>
         </div>
         <div class="contents_box">

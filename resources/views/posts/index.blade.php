@@ -39,9 +39,7 @@
             <!-- 投稿者のアイコン（プロフィールリンク設定） -->
             <a href="/profile/{{ $post->user->id }}">
                 <img class="form_icon"
-                src="{{ $post->user->images
-                ? asset('storage/' . $post->user->images)
-                : asset('images/icon1.png') }}"
+                src="{{ $post->user->profile_image_url }}"
                 alt="ユーザーアイコン">
             </a>
         </div>

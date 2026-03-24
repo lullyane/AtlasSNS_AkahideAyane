@@ -42,7 +42,7 @@
 <div class="list">
     <div class="list_box">
         <!-- 投稿者のアイコン -->
-        <img class="form_icon" src="{{ asset('storage/' . $post->user->images) }}">
+        <img class="form_icon" src="{{ $post->user->profile_image_url }}" alt="ユーザーアイコン">
         <div class="contents_box">
             <!-- 投稿ユーザー名 -->
             <p class="contents_username">{{ $post->user->username }}</p>
