@@ -6,11 +6,11 @@
     <p>フォロワーリスト</p>
     <div class="follow_img">
         @foreach ($users as $user)
-        <a href="/profile/{{ $user->id }}">
-            <img class="form_icon"
+        <!-- アイコン横にスペースが入らないようにaタグとimgタグは間を空けずに置く -->
+        <a href="/profile/{{ $user->id }}"><img
+            class="form_icon"
             src="{{ $user->profile_image_url }}"
-            alt="ユーザーアイコン">
-        </a>
+            alt="ユーザーアイコン"></a>
         @endforeach
     </div>
 </div>
@@ -19,8 +19,10 @@
 <div class="list">
     <div class="list_box">
         <div>
+            <a href="/profile/{{ $post->user->id }}">
             <!-- 投稿者のアイコン -->
             <img class="form_icon" src="{{ $post->user->images }}" alt="ユーザーアイコン">
+            </a>
         </div>
         <div class="contents_box">
             <!-- 投稿ユーザー名 -->
