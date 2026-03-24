@@ -8,9 +8,7 @@
         @foreach ($users as $user)
         <a href="/profile/{{ $user->id }}">
             <img class="form_icon"
-            src="{{ $user->images
-            ? asset('storage/' . $user->images)
-            : asset('images/icon1.png') }}"
+            src="{{ $user->profile_image_url }}"
             alt="ユーザーアイコン">
         </a>
         @endforeach

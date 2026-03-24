@@ -5,7 +5,7 @@
 @foreach ($user as $user)
 <div class="others_top_wrapper">
     <div class="others_top">
-    <img class="form_icon" src="{{ asset('storage/' . $user->images) }}">
+    <img class="form_icon" src="{{ $user->profile_image_url }}">
     <div class="others_item">
             <p>ユーザー名</p>
             <p>自己紹介</p>
