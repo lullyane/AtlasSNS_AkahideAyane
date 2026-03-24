@@ -31,9 +31,9 @@
             <p class="contents_post">{{ $post->post }}</p>
             <!-- ↑空白が適用されちゃうから改行しない -->
         </div>
-        <div class="others_box">
+        <div class="created_at">
              <!-- 投稿日時（秒非表示） -->
-            <p class="created_at">{{ $post->created_at->format('Y-m-d H:i') }}</p>
+            <p>{{ $post->created_at->format('Y-m-d H:i') }}</p>
         </div>
     </div>
 </div>
