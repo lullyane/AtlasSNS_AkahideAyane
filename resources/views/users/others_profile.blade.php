@@ -18,16 +18,16 @@
             @auth
                 @if (Auth::user()->id !== $user->id)
                     @if (Auth::user()->isFollowing($user->id))
-                        <!-- route：ルートファイルのnameから拾ってる -->
-                        <form action="{{ route('unfollow_follow', ['id' => $user->id]) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn follow_unfollow">フォロー解除</button>
-                        </form>
-                        @else
-                        <form action="{{ route('following_follow', ['id' => $user->id]) }}" method="POST">
+                    <!-- route：ルートファイルのnameから拾ってる -->
+                    <form action="{{ route('unfollow_follow', ['id' => $user->id]) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn follow_unfollow">フォロー解除</button>
+                    </form>
+                    @else
+                    <form action="{{ route('following_follow', ['id' => $user->id]) }}" method="POST">
                         @csrf
                         <button type="submit" class="btn follow_follow">フォローする</button>
-                        </form>
+                    </form>
                     @endif
                 @endif
             @endauth
