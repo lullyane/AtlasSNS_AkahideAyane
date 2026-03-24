@@ -693,7 +693,7 @@ button.follow {
 
 .others_item p {
     width: 80px;
-    margin-left: 20px;
+    margin: 0 70px 0 20px;
     text-align: justify;
     height: 0;
 }
@@ -710,7 +710,6 @@ button.follow {
 
 .others_content p {
     width: 400px;
-    margin: 0 50px 0 80px;
 }
 
 .others_content p:not(:last-child) {
