@@ -78,6 +78,8 @@ class PostsController extends Controller
                 'post.between' => '※投稿内容は150文字以内である必要があるため、更新されませんでした。',
             ]);
 
+        $post = Post::find($request->id);
+
         $post->post = $request->post;
         $post->save();
 
