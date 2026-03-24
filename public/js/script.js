@@ -10,6 +10,8 @@ $(function () {
             //もし、プルダウン（.menu_trigger）に（.active）があれば、
             $('.menu_nav').addClass('active');
             //(.menu_nav)にも（.active）を追加する。
+            syncMenuWidth();
+            // アコーディオンメニューの幅をサイドバーと同じにするメソッド呼ぶ
         } else {
             //それ以外の場合は、
             $('.menu_nav').removeClass('active');
@@ -24,6 +26,20 @@ $(function () {
         //(.g_nav)にある（.active）も削除する。
     });
 });
+
+
+// --------------------
+// アコーディオンメニューの幅をサイドバーと同じにする
+// --------------------
+function syncMenuWidth() {
+    const sidebar = document.getElementById('sideBar');
+    const menu = document.querySelector('.menu_nav');
+    if (sidebar && menu) {
+        menu.style.width = sidebar.offsetWidth + 'px';
+    }
+}
+// if( && ) とは、「&&の左側がtrue(存在する値)なら&&の右側を見て、左側がNULLなら右側を見ずにfalseにする」という動きをさせるために活用する
+// なくても動くのだが、sideBarがないログアウトビューファイルにも適用しているJSのため、念のためにコーディング
 
 // --------------------
 // フォームのパスワードを伏字にする
@@ -137,11 +153,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-
-// --------------------
-// メニューナビ（トリガーメニュー）の幅をサイドバーと同じにする
-// --------------------
-const sidebar = document.getElementById('sideBar');
-const menu = document.querySelector('.menu_nav');
-menu.style.width = sidebar.offsetWidth + 'px';
