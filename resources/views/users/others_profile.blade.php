@@ -5,6 +5,7 @@
 @foreach ($user as $user)
 <div class="others_top_wrapper">
     <div class="others_top">
+        <div class="others_profile">
         <img class="form_icon" src="{{ $user->profile_image_url }}">
         <div class="others_item">
             <p>ユーザー名</p>
@@ -13,6 +14,7 @@
         <div class="others_content">
             <p>{{ $user->username }}</p>
             <p>{{ $user->bio }}</p>
+        </div>
         </div>
         <div class="follow_area">
             @auth
