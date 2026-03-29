@@ -20,7 +20,6 @@
                         <a href="/top"><img src="{{ asset('images/atlas.png') }}" alt="Atlas"></a>
                     </div>
                 </h1>
-
                 <!-- ヘッダー右側 -->
                 <div class="head_right">
                     @auth
@@ -31,25 +30,25 @@
                         <span></span>
                         <span></span>
                     </div>
-                    <!-- アコーディオンメニュー -->
-                    <nav class="menu_nav">
-                        <ul>
-                            <li class="nav_item"><a href="/top">HOME</a></li>
-                            <li class="nav_item"><a href="/profile">プロフィール編集</a></li>
-                            <li class="nav_item">
-                                <form action="{{ route('logout') }}" method="POST" id="logout-form">@csrf</form>
-                                <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();">ログアウト</a>
-                            </li>
-                        </ul>
-                    </nav>
                     <div class="img_wrap">
                         <img src="{{ Auth::user()->profile_image_url }}"
                         alt="ユーザーアイコン"
-                        class="profile_item profile_icon">
+                        class="profile_icon">
                     </div>
                 </div>
             </div>
         </header>
+        <!-- アコーディオンメニュー -->
+        <nav class="menu_nav">
+            <ul>
+                <li class="nav_item"><a href="/top">HOME</a></li>
+                <li class="nav_item"><a href="/profile">プロフィール編集</a></li>
+                <li class="nav_item">
+                    <form action="{{ route('logout') }}" method="POST" id="logout-form">@csrf</form>
+                    <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();">ログアウト</a>
+                </li>
+            </ul>
+        </nav>
         <main>
             <div id="row">
                 <section id="container">

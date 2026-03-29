@@ -25,7 +25,7 @@
             <!-- CSRF攻撃対策 -->
             @csrf
             <textarea name="post" placeholder="投稿内容を入力してください"></textarea>
-            <div class="img_wrap">
+            <div>
                 <button><img class="post" src="images/post.png" alt="投稿"></button>
             </div>
         </div>
